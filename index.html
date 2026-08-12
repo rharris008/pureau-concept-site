@@ -194,6 +194,18 @@ section{padding:clamp(64px,10vh,120px) 0}
 .stage h3{font-size:19px; margin-bottom:10px}
 .stage p{font-size:15px; margin:0}
 
+/* ---------- RO Compare ---------- */
+.rocompare{background:var(--white)}
+.roweakgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,24px); margin:clamp(28px,4vh,44px) 0}
+@media(max-width:900px){.roweakgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.roweakgrid{grid-template-columns:1fr}}
+.roweak{background:var(--tint); border-radius:4px; padding:26px; border-left:4px solid #E8792A}
+.roweak-icon{font-size:18px; color:#E8792A; margin-bottom:12px}
+.roweak h3{font-size:17px; margin-bottom:10px}
+.roweak p{font-size:15px; margin:0; color:var(--body)}
+.rodiff{background:var(--navy); color:#fff; border-radius:4px; padding:30px; margin-top:8px}
+.rodiff p{font-size:16px; color:#C9DBEA; margin:0; line-height:1.7}
+
 /* ---------- Trade ---------- */
 .trade{background:var(--white)}
 .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,2vw,24px); margin-bottom:clamp(26px,4vh,42px)}
@@ -499,6 +511,51 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
 </section>
 
 <!-- ===== TRADE ===== -->
+<section class="rocompare" id="ro-compare">
+  <div class="wrap">
+    <div class="hdr rev">
+      <p class="eyebrow">Not all ROs are the same</p>
+      <h2>A home filter and a Pureau plant are different things.</h2>
+      <p class="lede">Reverse osmosis is a process, not a guarantee. The result depends entirely on what surrounds the membrane — and most home systems leave out the parts that matter most.</p>
+    </div>
+    <div class="roweakgrid">
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>The storage tank problem</h3>
+        <p>Most under-bench and benchtop home RO units store purified water in a pressurised rubber bladder tank. Still water sitting in a rubber vessel in a warm cabinet is a known environment for bacterial regrowth. By the time it reaches your glass, the purification has been partially reversed.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>Filter fatigue goes undetected</h3>
+        <p>Home systems depend on the owner replacing pre-filters every 6 to 12 months. An exhausted carbon pre-filter allows chlorine and organic compounds through to the RO membrane, degrading it from the front. Contaminant rejection rates fall quietly, with no alarm and no visible sign.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>No biological filtration stage</h3>
+        <p>An RO membrane rejects dissolved solids — it does not filter bacteria. Pureau adds a third stage of biological filtration down to 0.2 microns after the membrane. Most home systems stop at the membrane. That gap is where bacteria live.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>Stage count is not purity</h3>
+        <p>Some home systems are marketed as 7-stage or 9-stage. In most cases the additional stages are mineral-addition cartridges, alkaline stones or UV lamps — each addressing taste or marketing, not purification. More stages does not mean cleaner water.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>Cold water cuts performance</h3>
+        <p>RO membrane efficiency drops significantly in cold water — a common condition in Australian winters, particularly in southern states. Rejection rates can fall by 15 to 25 per cent in cold supply water with no indication to the user that the system is underperforming.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>No independent verification</h3>
+        <p>Pureau sends samples to Australian Laboratory Services daily across every production run. A home RO system has no ongoing third-party testing. What the membrane claims to remove, and what it actually removes on any given day, are two different things without verified data to confirm it.</p>
+      </div>
+    </div>
+    <div class="rodiff rev">
+      <p>Pureau uses industrial-grade membranes operating at pressures home systems cannot match, with pre-filtration, post-membrane biological filtration to 0.2 microns, no storage tank, and daily laboratory verification. The water is processed, packaged, and sealed — not filtered on demand into a rubber bladder under your sink.</p>
+    </div>
+  </div>
+</section>
+
 <section class="trade" id="trade">
   <div class="wrap">
     <div class="head rev">
