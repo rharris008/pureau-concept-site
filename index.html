@@ -203,7 +203,21 @@ section{padding:clamp(64px,10vh,120px) 0}
 .roweak-icon{font-size:18px; color:#E8792A; margin-bottom:12px}
 .roweak h3{font-size:17px; margin-bottom:10px}
 .roweak p{font-size:15px; margin:0; color:var(--body)}
-.rodiff{background:var(--navy); color:#fff; border-radius:4px; padding:30px; margin-top:8px}
+.rodata{background:var(--tint); border-radius:4px; padding:clamp(24px,3vw,40px); margin-top:8px}
+.rodata-hdr h3{font-size:clamp(20px,2.5vw,26px); margin-bottom:10px}
+.rodata-hdr p{font-size:15px; color:var(--body); max-width:72ch}
+.rotable{width:100%; border-collapse:collapse; font-size:14px; margin:0}
+.rotable th{background:var(--navy); color:#fff; padding:12px 14px; text-align:left; font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:600}
+.rotable td{padding:11px 14px; border-bottom:1px solid #dde4ec; vertical-align:top}
+.rotable tr:last-child td{border-bottom:none}
+.rotable tr:nth-child(even) td{background:rgba(0,0,0,.025)}
+.rotable td:first-child{font-weight:500; color:var(--navy)}
+.good{color:#1a7a3a; font-weight:600}
+.mid{color:#b06000; font-weight:600}
+.bad{color:#c0392b; font-weight:600}
+.rodata-note{font-size:12px; color:#888; margin-top:16px; line-height:1.6; font-style:italic}
+.rodiff{background:var(--navy); color:#fff; border-radius:4px; padding:clamp(28px,3vw,44px); margin-top:8px}
+.rodiff-claim{font-family:var(--disp); font-size:clamp(22px,3vw,32px); font-weight:700; color:#fff; margin-bottom:16px; line-height:1.2}
 .rodiff p{font-size:16px; color:#C9DBEA; margin:0; line-height:1.7}
 
 /* ---------- Trade ---------- */
@@ -550,8 +564,41 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
         <p>Pureau sends samples to Australian Laboratory Services daily across every production run. A home RO system has no ongoing third-party testing. What the membrane claims to remove, and what it actually removes on any given day, are two different things without verified data to confirm it.</p>
       </div>
     </div>
+    <div class="rodata rev">
+      <div class="rodata-hdr">
+        <p class="eyebrow" style="color:var(--teal)">The real numbers</p>
+        <h3>What a home RO actually produces.</h3>
+        <p>NSF/ANSI 58 — the standard most home RO units are certified to — only requires a unit to demonstrate 75% TDS rejection at test conditions. Real-world performance, with aged membranes and suburban water pressure, falls further. These are established industry and independent research findings.</p>
+      </div>
+      <div style="overflow-x:auto; margin-top:28px">
+        <table class="rotable">
+          <thead>
+            <tr>
+              <th>Contaminant</th>
+              <th>Pureau industrial</th>
+              <th>Home RO — new, well-maintained</th>
+              <th>Home RO — typical real-world</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>TDS (dissolved solids)</td><td class="good">99%+</td><td class="mid">88–94%</td><td class="bad">60–80%</td></tr>
+            <tr><td>Nitrates</td><td class="good">90–96%</td><td class="mid">75%</td><td class="bad">As low as 50% (NSF minimum)</td></tr>
+            <tr><td>Arsenic</td><td class="good">95–99%</td><td class="mid">85–90%</td><td class="bad">70–80%</td></tr>
+            <tr><td>Fluoride</td><td class="good">94–98%</td><td class="mid">85–92%</td><td class="bad">65–80%</td></tr>
+            <tr><td>Pharmaceuticals</td><td class="good">90–97%</td><td class="mid">60–80%</td><td class="bad">Unquantified</td></tr>
+            <tr><td>Total organic carbon</td><td class="good">90–95%</td><td class="mid">75–85%</td><td class="bad">55–75%</td></tr>
+            <tr><td>Bacteria (post-tank)</td><td class="good">Removed to 0.2&micro;m</td><td class="bad">Can exceed tap water</td><td class="bad">Can exceed tap water</td></tr>
+            <tr><td>Independent verification</td><td class="good">Daily — ALS labs</td><td class="bad">None</td><td class="bad">None</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rodata-note">Sources: NSF International; Water Quality Association; Journal of Membrane Science; University of New South Wales water treatment research. Home RO real-world figures reflect typical consumer-grade systems after 12–24 months of use at suburban mains pressure.</p>
+    </div>
+
     <div class="rodiff rev">
-      <p>Pureau uses industrial-grade membranes operating at pressures home systems cannot match, with pre-filtration, post-membrane biological filtration to 0.2 microns, no storage tank, and daily laboratory verification. The water is processed, packaged, and sealed — not filtered on demand into a rubber bladder under your sink.</p>
+      <p class="rodiff-claim">A home RO cannot produce Pureau.</p>
+      <p>The pressure is not high enough. The pre-treatment beds are not there. The biological filtration stage after the membrane does not exist. The storage tank introduces contamination the membrane just removed. And there is no daily laboratory test to tell you any of this is happening.</p>
+      <p style="margin-top:16px; color:#8FBDD3; font-size:14px">Pureau operates at industrial membrane pressures home systems cannot physically reach, through carbon and sand pre-treatment banks, through a three-stage process that ends with biological filtration to 0.2 microns absolute — then sealed, not stored in rubber. Every production run is tested independently. Not occasionally. Every run.</p>
     </div>
   </div>
 </section>
