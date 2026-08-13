@@ -300,16 +300,16 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     
     /* ── Process section ── */
     #process{background:var(--tint-2)}
-    .panim-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:start;margin-top:36px}
+    .panim-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,60px);align-items:start;margin-top:36px}
     @media(max-width:760px){.panim-grid{grid-template-columns:1fr;gap:28px}}
-    .panim-col{position:relative;width:100%;max-width:360px;margin:0 auto;height:520px;background:#E8F4FD;border-radius:12px;overflow:hidden;border:2px solid var(--line)}
+    .panim-col{position:relative;width:100%;max-width:460px;margin:0 auto;height:620px;background:#E8F4FD;border-radius:12px;overflow:hidden;border:2px solid var(--line)}
     .panim-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:10px 0;background:rgba(255,255,255,.7);font-family:var(--f)}
     #panim-top{color:var(--muted);border-bottom:1px dashed var(--line)}
     .panim-pure{border-top:2px solid var(--blue);background:rgba(0,153,215,.1);padding:12px 8px}
     .panim-layer{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:box-shadow .4s;cursor:default;z-index:10;font-family:var(--f)}
-    #panim-l1{top:108px;height:34px;background:rgba(6,90,130,.12);border-top:2px solid rgba(6,90,130,.3);border-bottom:2px solid rgba(6,90,130,.3);color:var(--navy)}
-    #panim-l2{top:254px;height:34px;background:rgba(0,153,215,.15);border-top:2px solid rgba(0,153,215,.4);border-bottom:2px solid rgba(0,153,215,.4);color:var(--blue)}
-    #panim-l3{top:400px;height:34px;background:rgba(39,174,96,.15);border-top:2px solid rgba(39,174,96,.4);border-bottom:2px solid rgba(39,174,96,.4);color:#1a7a42}
+    #panim-l1{top:135px;height:34px;background:rgba(6,90,130,.12);border-top:2px solid rgba(6,90,130,.3);border-bottom:2px solid rgba(6,90,130,.3);color:var(--navy)}
+    #panim-l2{top:312px;height:34px;background:rgba(0,153,215,.15);border-top:2px solid rgba(0,153,215,.4);border-bottom:2px solid rgba(0,153,215,.4);color:var(--blue)}
+    #panim-l3{top:489px;height:34px;background:rgba(39,174,96,.15);border-top:2px solid rgba(39,174,96,.4);border-bottom:2px solid rgba(39,174,96,.4);color:#1a7a42}
     .panim-layer.active{box-shadow:0 0 0 3px rgba(0,153,215,.35),0 4px 20px rgba(0,153,215,.2)}
     #panim-l1.active{box-shadow:0 0 0 3px rgba(6,90,130,.4),0 4px 20px rgba(6,90,130,.15)}
     #panim-l3.active{box-shadow:0 0 0 3px rgba(39,174,96,.4),0 4px 20px rgba(39,174,96,.15)}
@@ -647,7 +647,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
             <div class="panim-key-group">
               <div class="panim-key-slabel" style="color:var(--navy)">Stage 1 removes:</div>
               <div class="panim-key-items">
-                <span class="panim-key-dot" style="background:#4BA3DC"></span>Chlorine
+                <span class="panim-key-dot" style="background:#8E44AD"></span>Chlorine
                 <span class="panim-key-dot" style="background:#E67E22"></span>Nitrates
                 <span class="panim-key-dot" style="background:#A0856B"></span>Iron &amp; sediment
               </div>
@@ -980,7 +980,7 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
   var FY = function(){ return [c.height*0.218, c.height*0.503, c.height*0.788]; };
   var PY = function(){ return c.height*0.91; };
   var PT = [
-    {id:'chlorine', col:'#4BA3DC', r:5, stop:1, label:'Cl'},
+    {id:'chlorine', col:'#8E44AD', r:5, stop:1, label:'Cl'},
     {id:'nitrate',  col:'#E67E22', r:6, stop:1, label:'NO3'},
     {id:'sediment', col:'#A0856B', r:7, stop:1, label:''},
     {id:'fluoride', col:'#F1C40F', r:4, stop:2, label:'F'},
