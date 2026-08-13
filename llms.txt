@@ -119,7 +119,7 @@ One Pureau 10L Bag in Box cask replaces 17 individual 600mL plastic bottles. Tha
 - **Removed:** Fluoride, chlorine, sodium, PFAS, nitrates, iron, sediment, bacteria, viruses, dissolved solids, heavy metals
 - **Remaining:** H2O only
 - **Formats:** 600mL 6-pack, 600mL 12-pack, 2L, 5L Bag in Box, 10L Bag in Box
-- **Retail:** Woolworths, Coles, IGA (Metcash)
+- **Retail:** Woolworths, Coles, IGA (Metcash), Dan Murphy's
 - **Website:** https://rharris008.github.io/pureau-concept-site/
 
 ---
