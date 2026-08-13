@@ -646,13 +646,14 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
               <div class="panim-key-items">
                 <span class="panim-key-dot" style="background:#8E44AD"></span>Chlorine
                 <span class="panim-key-dot" style="background:#E67E22"></span>Nitrates
-                <span class="panim-key-dot" style="background:#A0856B"></span>Iron &amp; sediment
+                <span class="panim-key-dot" style="background:#8B5E3C"></span>Dirt &amp; sediment
               </div>
             </div>
             <div class="panim-key-group">
               <div class="panim-key-slabel" style="color:var(--blue)">Stage 2 removes:</div>
               <div class="panim-key-items">
                 <span class="panim-key-dot" style="background:#F1C40F;border:1px solid #ccc"></span>Fluoride
+                <span class="panim-key-dot" style="background:#16A085"></span>PFAS
                 <span class="panim-key-dot" style="background:#E8192C"></span>Sodium
                 <span class="panim-key-dot" style="background:#95A5A6"></span>Dissolved solids
               </div>
@@ -661,7 +662,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
               <div class="panim-key-slabel" style="color:#27AE60">Stage 3 removes:</div>
               <div class="panim-key-items">
                 <span class="panim-key-dot" style="background:#C0392B"></span>Bacteria
-                <span class="panim-key-dot" style="background:#922B21"></span>Viruses
+                <span class="panim-key-dot" style="background:#922B21"></span>Viruses &amp; microbes
               </div>
             </div>
             <div class="panim-key-group">
@@ -974,19 +975,20 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
   var FY = function(){ return [c.height*0.218, c.height*0.503, c.height*0.788]; };
   var PY = function(){ return c.height*0.91; };
   var PT = [
-    {id:'chlorine', col:'#8E44AD', r:5, stop:1, label:'Cl'},
-    {id:'nitrate',  col:'#E67E22', r:6, stop:1, label:'NO3'},
-    {id:'sediment', col:'#A0856B', r:7, stop:1, label:''},
-    {id:'fluoride', col:'#F1C40F', r:4, stop:2, label:'F'},
-    {id:'sodium',   col:'#E8192C', r:4, stop:2, label:'Na'},
-    {id:'dissolved',col:'#95A5A6', r:3, stop:2, label:''},
-    {id:'bacteria', col:'#C0392B', r:5, stop:3, label:'BK'},
-    {id:'microbe',  col:'#922B21', r:3, stop:3, label:''},
-    {id:'water',    col:'#0099D7', r:7, stop:0, label:''}
+    {id:'chlorine', col:'#8E44AD', r:6,  stop:1, label:'Cl'},
+    {id:'nitrate',  col:'#E67E22', r:7,  stop:1, label:'NO3'},
+    {id:'sediment', col:'#8B5E3C', r:10, stop:1, label:''},
+    {id:'fluoride', col:'#F1C40F', r:6,  stop:2, label:'F'},
+    {id:'pfas',     col:'#16A085', r:6,  stop:2, label:'PF'},
+    {id:'sodium',   col:'#E8192C', r:6,  stop:2, label:'Na'},
+    {id:'dissolved',col:'#95A5A6', r:5,  stop:2, label:''},
+    {id:'bacteria', col:'#C0392B', r:11, stop:3, label:'BK'},
+    {id:'microbe',  col:'#922B21', r:8,  stop:3, label:'VS'},
+    {id:'water',    col:'#0099D7', r:7,  stop:0, label:''}
   ];
   var parts=[], frame=0, hl=0, stT=0;
   function spawn() {
-    var isW=Math.random()<0.45, t=isW?PT[8]:PT[Math.floor(Math.random()*8)];
+    var isW=Math.random()<0.45, t=isW?PT[9]:PT[Math.floor(Math.random()*9)];
     parts.push({x:20+Math.random()*(c.width-40),y:30,vy:0.6+Math.random()*0.8,
       vx:(Math.random()-0.5)*0.3,type:t,r:t.r*(0.8+Math.random()*0.4),
       alpha:0.85+Math.random()*0.15,stopped:false,age:0,fadeAlpha:1});
