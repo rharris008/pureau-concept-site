@@ -586,7 +586,7 @@ function animate() {
   if (frame % 4 === 0 && particles.length < 80) spawnParticle();
 
   // Auto-advance stage highlight every 3 seconds
-  if (stageTimer > 180) {
+  if (stageTimer > 1800) {
     stageTimer = 0;
     highlighted = (highlighted % 3) + 1;
     showStage(highlighted);

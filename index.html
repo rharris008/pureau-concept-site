@@ -1222,7 +1222,7 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
     mpCtx.clearRect(0,0,mpCanvas.width,mpCanvas.height);
     mpFrame++; mpStT++;
     if(mpFrame%4===0&&mpParts.length<80) mpSpawn();
-    if(mpStT>180){mpStT=0;mpHL=(mpHL%3)+1;window.mpShowStage(mpHL);}
+    if(mpStT>1800){mpStT=0;mpHL=(mpHL%3)+1;window.mpShowStage(mpHL);}
     var fy=MP_FILTER_Y();
     var cols=['rgba(6,90,130,','rgba(0,153,215,','rgba(39,174,96,'];
     var glows=['#065A82','#0099D7','#27AE60'];
@@ -1386,7 +1386,7 @@ function procAnimate() {
   if (procFrame % 4 === 0 && particles.length < 80) spawnParticle();
 
   // Auto-advance stage highlight every 3 seconds
-  if (procStageTimer > 180) {
+  if (procStageTimer > 1800) {
     procStageTimer = 0;
     procHighlighted = (procHighlighted % 3) + 1;
     procShowStage(procHighlighted);
