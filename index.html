@@ -155,7 +155,7 @@ section{padding:clamp(64px,10vh,120px) 0}
 .card p{font-size:15.5px; margin:0}
 
 /* ---------- Purity matters ---------- */
-.matters{background:#1B2A4A; color:#EAF2F8}
+.matters{background:var(--blue); color:#EAF2F8}
 .matters h2,.matters h3{color:#fff}
 .matters .eyebrow{color:#BFE7F6}
 .matters .lede{color:#C9DBEA}
@@ -297,170 +297,80 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     .proof .big-stat{font-size:48px;font-weight:900;color:#0E7CCE;line-height:1}
     .proof .stat-label{font-size:14px;color:#666;margin-top:4px}
 
-    /* ── Process embed (verbatim from process.html) ── */
-    .proc-scope{font-family:Arial,sans-serif;color:#333}
-    .proc-scope .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-
-
-    /* ── HEADER ── */
-
-    /* ── WRAP ── */
-    .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
-
-    /* ── HERO ── */
-    .proc-hero{background:#1B2A4A;color:#fff;padding:clamp(50px,8vh,90px) 0}
-    .proc-hero .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BFE7F6;font-weight:600;margin-bottom:14px}
-    .proc-hero h1{font-size:clamp(28px,4.5vw,54px);font-weight:700;line-height:1.15;max-width:16ch;margin-bottom:20px}
-    .proc-hero p.sub{font-size:clamp(16px,1.8vw,20px);color:#D6EFFA;max-width:46ch;font-weight:300}
-
-    /* ── ANIMATION SECTION ── */
-    .anim-wrap{
-      display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,80px);
-      align-items:center;padding:clamp(50px,7vh,90px) 0
-    }
-    @media(max-width:760px){.anim-wrap{grid-template-columns:1fr;gap:40px}}
-
-    /* ── FILTRATION COLUMN ── */
-    #proc-filter-col{
-      position:relative;width:100%;max-width:380px;margin:0 auto;
-      height:560px;background:#E8F4FD;border-radius:16px;overflow:hidden;
-      border:2px solid #BFE7F6
-    }
-    .col-label{
-      text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;
-      text-transform:uppercase;padding:10px 0;background:rgba(255,255,255,.7)
-    }
-    #proc-tap-label{color:#888;border-bottom:1px dashed #BFE7F6}
-    #proc-pure-label{color:#0E7CCE;border-top:2px solid #0E7CCE;background:rgba(14,124,206,.08)}
-
-    /* Filter layers */
-    .flayer{
-      position:absolute;left:0;right:0;
-      display:flex;align-items:center;justify-content:center;
-      font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-      transition:background .4s,box-shadow .4s;cursor:default;z-index:10
-    }
-    #proc-fl1{top:118px;height:36px;background:rgba(27,42,74,.12);border-top:2px solid rgba(27,42,74,.3);border-bottom:2px solid rgba(27,42,74,.3);color:#1B2A4A}
-    #proc-fl2{top:276px;height:36px;background:rgba(14,124,206,.15);border-top:2px solid rgba(14,124,206,.4);border-bottom:2px solid rgba(14,124,206,.4);color:#0b69b0}
-    #proc-fl3{top:434px;height:36px;background:rgba(39,174,96,.15);border-top:2px solid rgba(39,174,96,.4);border-bottom:2px solid rgba(39,174,96,.4);color:#1a7a42}
-    .flayer.active{box-shadow:0 0 0 3px rgba(14,124,206,.35),0 4px 20px rgba(14,124,206,.2)}
-    #proc-fl1.active{box-shadow:0 0 0 3px rgba(27,42,74,.4),0 4px 20px rgba(27,42,74,.15)}
-    #proc-fl3.active{box-shadow:0 0 0 3px rgba(39,174,96,.4),0 4px 20px rgba(39,174,96,.15)}
-
-    .flayer-inner{
-      display:flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,.85);padding:4px 14px;border-radius:20px
-    }
-    .flayer-dot{width:8px;height:8px;border-radius:50%}
-    #proc-fl1 .flayer-dot{background:#1B2A4A}
-    #proc-fl2 .flayer-dot{background:#0E7CCE}
-    #proc-fl3 .flayer-dot{background:#27AE60}
-
-    /* Particle canvas */
-    #proc-particle-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:5}
-
-    /* Water flow lines */
-    .flow-zone{
-      position:absolute;left:0;right:0;
-      display:flex;justify-content:center;align-items:center;gap:12px
-    }
-    #fz-top{top:38px;height:76px}
-    #fz-m1{top:158px;height:114px}
-    #fz-m2{top:316px;height:114px}
-    #fz-bot{top:474px;height:52px}
-
-    /* ── STAGE INFO PANEL ── */
-    .stage-panel{position:relative}
-    .stage-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
-    .stab{
-      font-size:13px;font-weight:600;padding:8px 18px;border-radius:999px;
-      border:1.5px solid #e0e0e0;cursor:pointer;transition:.2s;background:#fff;color:#888
-    }
-    .stab:hover{border-color:#0E7CCE;color:#0E7CCE}
-    .stab.active{background:#0E7CCE;color:#fff;border-color:#0E7CCE}
-    .stab.s1.active{background:#1B2A4A;border-color:#1B2A4A}
-    .stab.s3.active{background:#27AE60;border-color:#27AE60}
-
-    .scard{display:none;animation:fadeUp .35s ease}
-    .scard.active{display:block}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
-    .scard .stage-num{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
-    .s1 .stage-num{color:#1B2A4A} .s2 .stage-num{color:#0E7CCE} .s3 .stage-num{color:#27AE60}
-    .scard h2{font-size:clamp(22px,2.8vw,32px);font-weight:700;color:#1B2A4A;margin-bottom:12px}
-    .scard .desc{font-size:16px;max-width:52ch;margin-bottom:22px;line-height:1.8}
-    .removes{display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
-    .rem-item{
-      display:flex;align-items:center;gap:12px;font-size:14px;
-      background:#f0f7fd;border-radius:8px;padding:10px 14px
-    }
-    .rem-icon{
-      width:28px;height:28px;border-radius:50%;display:flex;align-items:center;
-      justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:#fff
-    }
-    .s1 .rem-icon{background:#1B2A4A} .s2 .rem-icon{background:#0E7CCE} .s3 .rem-icon{background:#27AE60}
-    .rem-label{font-weight:600;color:#1B2A4A}
-    .rem-desc{font-size:13px;color:#666;margin-top:1px}
-    .stat-row{display:flex;gap:16px;flex-wrap:wrap}
-    .stat-pill{
-      background:#1B2A4A;color:#fff;border-radius:999px;
-      padding:8px 20px;font-size:13px;font-weight:600
-    }
-    .s2 .stat-pill{background:#0E7CCE} .s3 .stat-pill{background:#27AE60}
-
-    /* ── THREE STAGES GRID ── */
-    .stages-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-      padding:clamp(40px,6vh,70px) 0
-    }
-    @media(max-width:700px){.stages-grid{grid-template-columns:1fr}}
-    .sg-card{border-radius:12px;padding:32px;position:relative;overflow:hidden}
-    .sg-card.c1{background:#1B2A4A;color:#fff}
-    .sg-card.c2{background:#0E7CCE;color:#fff}
-    .sg-card.c3{background:#27AE60;color:#fff}
-    .sg-num{font-size:72px;font-weight:900;opacity:.15;position:absolute;top:-8px;right:16px;line-height:1}
-    .sg-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.75;margin-bottom:8px}
-    .sg-card h3{font-size:22px;font-weight:700;margin-bottom:14px}
-    .sg-card p{font-size:15px;opacity:.9;line-height:1.75}
-
-    /* ── REMOVES TABLE ── */
-    .removes-section{background:#1B2A4A;color:#fff;padding:clamp(50px,7vh,80px) 0}
-    .removes-section h2{font-size:clamp(22px,3vw,36px);font-weight:700;margin-bottom:8px;text-align:center}
-    .removes-section .sub{font-size:16px;color:#BFE7F6;text-align:center;margin-bottom:44px;max-width:52ch;margin-left:auto;margin-right:auto}
-    .remove-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-    .re-item{
-      background:rgba(255,255,255,.08);border-radius:10px;padding:20px;
-      border:1px solid rgba(255,255,255,.1)
-    }
-    .re-item .label{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px}
-    .re-item .note{font-size:13px;color:#BFE7F6;line-height:1.6}
-    .re-item .badge{
-      display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;
-      text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:8px
-    }
-    .badge.f1{background:rgba(255,255,255,.15);color:#D6EFFA}
-    .badge.f2{background:rgba(14,124,206,.5);color:#fff}
-    .badge.f3{background:rgba(39,174,96,.5);color:#fff}
-
-    /* ── PROOF BAND ── */
-    .proof{background:#f0f7fd;padding:clamp(40px,6vh,70px) 0}
-    .proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-    @media(max-width:680px){.proof-inner{grid-template-columns:1fr}}
-    .proof h2{font-size:clamp(20px,2.8vw,32px);font-weight:700;color:#1B2A4A;margin-bottom:16px}
-    .proof p{font-size:16px;margin-bottom:16px;max-width:52ch}
-    .proof .big-stat{font-size:48px;font-weight:900;color:#0E7CCE;line-height:1}
-    .proof .stat-label{font-size:14px;color:#666;margin-top:4px}
-
-    /* ── FOOTER ── */
-    .pk-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#999;margin-bottom:12px}
-    .pk-groups{display:flex;flex-wrap:wrap;gap:14px 28px}
-    .pk-group{min-width:180px}
-    .pk-stage-label{font-size:11px;font-weight:700;margin-bottom:6px}
-    .pk-items{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12px;color:#333}
-    .pk-dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:middle;margin-right:4px;flex-shrink:0}
-    .pk-drop{display:inline-block;width:9px;height:12px;background:#0E7CCE;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform:rotate(180deg);vertical-align:middle;margin-right:4px;flex-shrink:0;position:relative}
-    .pk-drop::after{content:'';position:absolute;top:3px;left:2px;width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%}
-  
+    
+    /* ── Process section ── */
+    #process{background:var(--tint-2)}
+    .panim-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:start;margin-top:36px}
+    @media(max-width:760px){.panim-grid{grid-template-columns:1fr;gap:28px}}
+    .panim-col{position:relative;width:100%;max-width:360px;margin:0 auto;height:520px;background:#E8F4FD;border-radius:12px;overflow:hidden;border:2px solid var(--line)}
+    .panim-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:10px 0;background:rgba(255,255,255,.7);font-family:var(--f)}
+    #panim-top{color:var(--muted);border-bottom:1px dashed var(--line)}
+    .panim-pure{color:var(--blue);border-top:2px solid var(--blue);background:rgba(0,153,215,.08)}
+    .panim-layer{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:box-shadow .4s;cursor:default;z-index:10;font-family:var(--f)}
+    #panim-l1{top:108px;height:34px;background:rgba(6,90,130,.12);border-top:2px solid rgba(6,90,130,.3);border-bottom:2px solid rgba(6,90,130,.3);color:var(--navy)}
+    #panim-l2{top:254px;height:34px;background:rgba(0,153,215,.15);border-top:2px solid rgba(0,153,215,.4);border-bottom:2px solid rgba(0,153,215,.4);color:var(--blue)}
+    #panim-l3{top:400px;height:34px;background:rgba(39,174,96,.15);border-top:2px solid rgba(39,174,96,.4);border-bottom:2px solid rgba(39,174,96,.4);color:#1a7a42}
+    .panim-layer.active{box-shadow:0 0 0 3px rgba(0,153,215,.35),0 4px 20px rgba(0,153,215,.2)}
+    #panim-l1.active{box-shadow:0 0 0 3px rgba(6,90,130,.4),0 4px 20px rgba(6,90,130,.15)}
+    #panim-l3.active{box-shadow:0 0 0 3px rgba(39,174,96,.4),0 4px 20px rgba(39,174,96,.15)}
+    .panim-layer-inner{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.85);padding:4px 14px;border-radius:20px}
+    .panim-dot{width:8px;height:8px;border-radius:50%}
+    #panim-l1 .panim-dot{background:var(--navy)} #panim-l2 .panim-dot{background:var(--blue)} #panim-l3 .panim-dot{background:#27AE60}
+    #panim-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:5}
+    .panim-panel{position:relative}
+    .panim-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+    .panim-tab{font-size:13px;font-weight:600;padding:7px 18px;border-radius:999px;border:1.5px solid var(--line);cursor:pointer;transition:.2s;background:var(--white);color:var(--muted);font-family:var(--f)}
+    .panim-tab:hover{border-color:var(--blue);color:var(--blue)}
+    .panim-tab.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .panim-tab.pt1.active{background:var(--navy);border-color:var(--navy)}
+    .panim-tab.pt3.active{background:#27AE60;border-color:#27AE60}
+    .panim-card{display:none;animation:panFadeUp .35s ease}
+    .panim-card.active{display:block}
+    @keyframes panFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .panim-stage-num{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:10px;font-family:var(--f)}
+    .panim-card.pc1 .panim-stage-num{color:var(--navy)} .panim-card.pc2 .panim-stage-num{color:var(--blue)} .panim-card.pc3 .panim-stage-num{color:#27AE60}
+    .panim-card h3{font-size:clamp(20px,2.4vw,28px);margin-bottom:10px}
+    .panim-card.pc1 h3{color:var(--navy)} .panim-card.pc2 h3{color:var(--blue)} .panim-card.pc3 h3{color:#27AE60}
+    .panim-desc{font-size:15px;max-width:52ch;margin-bottom:18px;line-height:1.8;color:var(--body)}
+    .panim-removes{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+    .panim-rem-item{display:flex;align-items:center;gap:12px;font-size:14px;background:var(--tint);border-radius:6px;padding:10px 14px}
+    .panim-rem-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;color:#fff;font-family:var(--f)}
+    .panim-card.pc1 .panim-rem-icon{background:var(--navy)} .panim-card.pc2 .panim-rem-icon{background:var(--blue)} .panim-card.pc3 .panim-rem-icon{background:#27AE60}
+    .panim-rem-label{font-weight:600;color:var(--navy)} .panim-rem-desc{font-size:13px;color:var(--muted);margin-top:1px}
+    .panim-pills{display:flex;gap:10px;flex-wrap:wrap}
+    .panim-pill{background:var(--navy);color:#fff;border-radius:999px;padding:6px 16px;font-size:12px;font-weight:600;font-family:var(--f)}
+    .panim-card.pc2 .panim-pill{background:var(--blue)} .panim-card.pc3 .panim-pill{background:#27AE60}
+    .panim-key{margin-top:18px;padding:14px 0 0;border-top:1px solid var(--line)}
+    .panim-key-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-family:var(--f)}
+    .panim-key-groups{display:flex;flex-wrap:wrap;gap:10px 20px}
+    .panim-key-group{min-width:160px}
+    .panim-key-slabel{font-size:11px;font-weight:700;margin-bottom:5px;font-family:var(--f)}
+    .panim-key-items{display:flex;flex-wrap:wrap;gap:5px 12px;align-items:center;font-size:12px;color:var(--body);font-family:var(--f)}
+    .panim-key-dot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:3px;flex-shrink:0}
+    .panim-key-drop{display:inline-block;width:8px;height:11px;background:var(--blue);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform:rotate(180deg);vertical-align:middle;margin-right:3px;flex-shrink:0}
+    .panim-cta{text-align:center;margin-top:28px}
+    .panim-cta a{display:inline-block;font-size:14px;font-weight:600;color:var(--navy);border:1.5px solid var(--blue);padding:9px 26px;border-radius:999px;transition:.2s;text-decoration:none;font-family:var(--f)}
+    .panim-cta a:hover{background:var(--blue);color:#fff}
+    /* What is removed */
+    .proc-removes{background:var(--blue);color:#fff;padding:clamp(50px,7vh,80px) 0}
+    .proc-removes h2{color:#fff;text-align:center;margin-bottom:8px}
+    .proc-removes-sub{font-size:16px;color:#D6EFFA;text-align:center;margin-bottom:40px;max-width:52ch;margin-left:auto;margin-right:auto}
+    .proc-rem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .proc-rem-card{background:rgba(255,255,255,.12);border-radius:8px;padding:20px;border:1px solid rgba(255,255,255,.15)}
+    .proc-rem-card .proc-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:8px;font-family:var(--f)}
+    .proc-badge.pb1{background:rgba(255,255,255,.2);color:#D6EFFA}
+    .proc-badge.pb2{background:rgba(0,0,0,.2);color:#D6EFFA}
+    .proc-badge.pb3{background:rgba(39,174,96,.4);color:#fff}
+    .proc-rem-card .proc-rem-name{font-size:15px;font-weight:700;color:#fff;margin-bottom:4px;font-family:var(--disp)}
+    .proc-rem-card .proc-rem-note{font-size:13px;color:#D6EFFA;line-height:1.6}
+    /* Proof band */
+    .proc-proof{background:var(--tint);padding:clamp(40px,6vh,60px) 0}
+    .proc-proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    @media(max-width:680px){.proc-proof-inner{grid-template-columns:1fr}}
+    .proc-proof h2{margin-bottom:16px}
+    .proc-proof p{font-size:16px;margin-bottom:16px;max-width:52ch;color:var(--body)}
+    .proc-big-stat{font-size:48px;font-weight:900;color:var(--blue);line-height:1;font-family:var(--disp)}
+    .proc-stat-note{font-size:14px;color:var(--muted);margin-top:6px}
 
 </style>
 </head>
@@ -703,183 +613,130 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
 </section>
 
 <!-- ===== PROCESS ===== -->
-
-<div class="proc-scope" id="process">
-<!-- HERO -->
-<section class="proc-hero">
+<section id="process">
   <div class="wrap">
-    <p class="eyebrow">The Pureau process</p>
-    <h1>Three stages. No chemicals.</h1>
-    <p class="sub">Every drop of Pureau passes through three independently verified stages before it leaves our facility. This is what 100% pure water actually takes.</p>
-  </div>
-</section>
+    <div class="head rev">
+      <p class="eyebrow">The Pureau process</p>
+      <h2>Three stages. No chemicals.</h2>
+      <p class="lede rev" style="margin-top:16px">Every drop of Pureau passes through three independently verified stages before it leaves our facility. This is what 100% pure water actually takes.</p>
+    </div>
 
-<!-- ANIMATION + STAGE PANEL -->
-<section>
-  <div class="wrap">
-    <div class="anim-wrap">
-
-      <!-- Left: filtration column -->
+    <div class="panim-grid">
+      <!-- Left: filter column -->
       <div>
-        <div id="proc-filter-col">
-          <div class="col-label" id="proc-tap-label">Tap water in</div>
-          <canvas id="proc-particle-canvas"></canvas>
-          <div class="flayer" id="proc-fl1">
-            <div class="flayer-inner"><div class="flayer-dot"></div>Stage 1 — Filtration</div>
+        <div class="panim-col" id="panim-col">
+          <div class="panim-label" id="panim-top">Tap water in</div>
+          <canvas id="panim-canvas"></canvas>
+          <div class="panim-layer" id="panim-l1">
+            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 1 — Filtration</div>
           </div>
-          <div class="flayer" id="proc-fl2">
-            <div class="flayer-inner"><div class="flayer-dot"></div>Stage 2 — Reverse Osmosis</div>
+          <div class="panim-layer" id="panim-l2">
+            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 2 — Reverse Osmosis</div>
           </div>
-          <div class="flayer" id="proc-fl3">
-            <div class="flayer-inner"><div class="flayer-dot"></div>Stage 3 — Biological</div>
+          <div class="panim-layer" id="panim-l3">
+            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 3 — Biological</div>
           </div>
-          <div class="col-label" id="proc-pure-label">100% Pure water out</div>
+          <div class="panim-label panim-pure" id="panim-bot">100% Pure water out</div>
+        </div>
+        <div class="panim-key rev">
+          <div class="panim-key-title">What you're seeing</div>
+          <div class="panim-key-groups">
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:var(--navy)">Stage 1 removes:</div>
+              <div class="panim-key-items">
+                <span class="panim-key-dot" style="background:#4BA3DC"></span>Chlorine
+                <span class="panim-key-dot" style="background:#E67E22"></span>Nitrates
+                <span class="panim-key-dot" style="background:#A0856B"></span>Iron &amp; sediment
+              </div>
+            </div>
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:var(--blue)">Stage 2 removes:</div>
+              <div class="panim-key-items">
+                <span class="panim-key-dot" style="background:#F1C40F;border:1px solid #ccc"></span>Fluoride
+                <span class="panim-key-dot" style="background:#E8192C"></span>Sodium
+                <span class="panim-key-dot" style="background:#95A5A6"></span>Dissolved solids
+              </div>
+            </div>
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:#27AE60">Stage 3 removes:</div>
+              <div class="panim-key-items">
+                <span class="panim-key-dot" style="background:#C0392B"></span>Bacteria
+                <span class="panim-key-dot" style="background:#922B21"></span>Viruses
+              </div>
+            </div>
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:var(--blue)">Passes through:</div>
+              <div class="panim-key-items"><span class="panim-key-drop"></span>100% Pure water</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Right: stage info panel -->
-      <div class="stage-panel">
-        <div class="stage-tabs">
-          <button class="stab s1 active" onclick="procShowStage(1)">Stage 1</button>
-          <button class="stab s2" onclick="procShowStage(2)">Stage 2</button>
-          <button class="stab s3" onclick="procShowStage(3)">Stage 3</button>
+      <!-- Right: stage panel -->
+      <div class="panim-panel">
+        <div class="panim-tabs">
+          <button class="panim-tab pt1 active" onclick="pShowStage(1)">Stage 1</button>
+          <button class="panim-tab pt2" onclick="pShowStage(2)">Stage 2</button>
+          <button class="panim-tab pt3" onclick="pShowStage(3)">Stage 3</button>
         </div>
-
-        <!-- Stage 1 -->
-        <div class="scard s1 active" id="proc-sc1">
-          <div class="stage-num">First stage</div>
-          <h2>Filtration</h2>
-          <p class="desc">Carbon filtration and inorganic media remove large contaminants and inorganic materials from the incoming water. This stage conditions the water for the high-pressure reverse osmosis step that follows.</p>
-          <div class="removes">
-            <div class="rem-item">
-              <div class="rem-icon">Cl</div>
-              <div><div class="rem-label">Chlorine and chloramines</div><div class="rem-desc">Added to tap water as disinfectant — removed at Stage 1.</div></div>
-            </div>
-            <div class="rem-item">
-              <div class="rem-icon">Fe</div>
-              <div><div class="rem-label">Iron and sediment</div><div class="rem-desc">Dissolved metals and particulate matter from ageing pipes.</div></div>
-            </div>
-            <div class="rem-item">
-              <div class="rem-icon">NO</div>
-              <div><div class="rem-label">Nitrates</div><div class="rem-desc">Common in agricultural catchments, removed via specialised carbon media.</div></div>
-            </div>
+        <div class="panim-card pc1 active" id="panim-sc1">
+          <div class="panim-stage-num">First stage</div>
+          <h3>Filtration</h3>
+          <p class="panim-desc">Carbon and inorganic media remove large contaminants from incoming water. Chlorine, nitrates, iron and sediment are captured here before water enters the RO stage.</p>
+          <div class="panim-removes">
+            <div class="panim-rem-item"><div class="panim-rem-icon">Cl</div><div><div class="panim-rem-label">Chlorine and chloramines</div><div class="panim-rem-desc">Added to tap water as disinfectant.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">Fe</div><div><div class="panim-rem-label">Iron and sediment</div><div class="panim-rem-desc">Dissolved metals and particulate from pipes.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">NO</div><div><div class="panim-rem-label">Nitrates</div><div class="panim-rem-desc">Common in agricultural catchments.</div></div></div>
           </div>
-          <div class="stat-row">
-            <div class="stat-pill">Carbon &amp; inorganic media</div>
-            <div class="stat-pill">Decades of refinement</div>
-          </div>
+          <div class="panim-pills"><div class="panim-pill">Carbon &amp; inorganic media</div></div>
         </div>
-
-        <!-- Stage 2 -->
-        <div class="scard s2" id="proc-sc2">
-          <div class="stage-num">Second stage</div>
-          <h2>Reverse osmosis</h2>
-          <p class="desc">Water is forced under high pressure through semi-permeable membranes. Dissolved solids, fluoride, sodium, heavy metals and most remaining contaminants cannot pass through the membrane and are rejected.</p>
-          <div class="removes">
-            <div class="rem-item">
-              <div class="rem-icon">F</div>
-              <div><div class="rem-label">Fluoride</div><div class="rem-desc">State-added fluoride is rejected by the RO membrane.</div></div>
-            </div>
-            <div class="rem-item">
-              <div class="rem-icon">Na</div>
-              <div><div class="rem-label">Sodium</div><div class="rem-desc">Dissolved sodium salts are blocked — not detected in finished product.</div></div>
-            </div>
-            <div class="rem-item">
-              <div class="rem-icon">PF</div>
-              <div><div class="rem-label">PFAS</div><div class="rem-desc">"Forever chemicals" found in some Australian catchments — removed by RO.</div></div>
-            </div>
+        <div class="panim-card pc2" id="panim-sc2">
+          <div class="panim-stage-num">Second stage</div>
+          <h3>Reverse osmosis</h3>
+          <p class="panim-desc">Water is forced under high pressure through semi-permeable membranes. Fluoride, sodium, PFAS and heavy metals are rejected at the membrane.</p>
+          <div class="panim-removes">
+            <div class="panim-rem-item"><div class="panim-rem-icon">F</div><div><div class="panim-rem-label">Fluoride</div><div class="panim-rem-desc">State-added fluoride rejected by the membrane.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">Na</div><div><div class="panim-rem-label">Sodium</div><div class="panim-rem-desc">Not detected in the finished product.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">PF</div><div><div class="panim-rem-label">PFAS</div><div class="panim-rem-desc">"Forever chemicals" detected in some Australian catchments.</div></div></div>
           </div>
-          <div class="stat-row">
-            <div class="stat-pill">High-pressure membrane</div>
-            <div class="stat-pill">Sub-micron rejection</div>
-          </div>
+          <div class="panim-pills"><div class="panim-pill">High-pressure membrane</div></div>
         </div>
-
-        <!-- Stage 3 -->
-        <div class="scard s3" id="proc-sc3">
-          <div class="stage-num">Third stage</div>
-          <h2>Biological filtration</h2>
-          <p class="desc">The final security measure. Biological filters remove any remaining substances down to 0.2 microns — smaller than any known bacteria or virus. This is the stage that separates a Pureau plant from every home filter on the market.</p>
-          <div class="removes">
-            <div class="rem-item">
-              <div class="rem-icon">BK</div>
-              <div><div class="rem-label">Bacteria</div><div class="rem-desc">0.2-micron rated filters block all known bacterial organisms.</div></div>
-            </div>
-            <div class="rem-item">
-              <div class="rem-icon">VS</div>
-              <div><div class="rem-label">Viruses and microbes</div><div class="rem-desc">Sub-micron filtration removes organisms that RO alone may miss.</div></div>
-            </div>
-            <div class="rem-item">
-              <div class="rem-icon">ALS</div>
-              <div><div class="rem-label">Daily ALS verification</div><div class="rem-desc">Samples sent to Australian Laboratory Services every single production run.</div></div>
-            </div>
+        <div class="panim-card pc3" id="panim-sc3">
+          <div class="panim-stage-num">Third stage</div>
+          <h3>Biological filtration</h3>
+          <p class="panim-desc">Biological filters remove any remaining substances down to 0.2 microns. Smaller than any known bacteria or virus. Every production run independently verified by ALS.</p>
+          <div class="panim-removes">
+            <div class="panim-rem-item"><div class="panim-rem-icon">BK</div><div><div class="panim-rem-label">Bacteria</div><div class="panim-rem-desc">0.2-micron filters block all known bacterial organisms.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">VS</div><div><div class="panim-rem-label">Viruses and microbes</div><div class="panim-rem-desc">Sub-micron filtration removes organisms RO may miss.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">ALS</div><div><div class="panim-rem-label">ALS verified daily</div><div class="panim-rem-desc">Australian Laboratory Services every production run.</div></div></div>
           </div>
-          <div class="stat-row">
-            <div class="stat-pill">0.2 micron rated</div>
-            <div class="stat-pill">ALS certified daily</div>
-          </div>
-        </div>
-      </div><!-- /stage-panel -->
-
-
-    <!-- Particle key -->
-    <div class="particle-key">
-      <div class="pk-title">What you're seeing</div>
-      <div class="pk-groups">
-        <div class="pk-group">
-          <div class="pk-stage-label" style="color:#1B2A4A">Stage 1 — Filtration removes:</div>
-          <div class="pk-items">
-            <span class="pk-dot" style="background:#4BA3DC"></span>Chlorine
-            <span class="pk-dot" style="background:#E67E22"></span>Nitrates
-            <span class="pk-dot" style="background:#A0856B"></span>Iron &amp; sediment
-          </div>
-        </div>
-        <div class="pk-group">
-          <div class="pk-stage-label" style="color:#0E7CCE">Stage 2 — RO membrane removes:</div>
-          <div class="pk-items">
-            <span class="pk-dot" style="background:#F1C40F;border:1px solid #ccc"></span>Fluoride
-            <span class="pk-dot" style="background:#E8192C"></span>Sodium
-            <span class="pk-dot" style="background:#95A5A6"></span>Dissolved solids
-          </div>
-        </div>
-        <div class="pk-group">
-          <div class="pk-stage-label" style="color:#27AE60">Stage 3 — Biological filter removes:</div>
-          <div class="pk-items">
-            <span class="pk-dot" style="background:#C0392B"></span>Bacteria
-            <span class="pk-dot" style="background:#922B21"></span>Viruses &amp; microbes
-          </div>
-        </div>
-        <div class="pk-group">
-          <div class="pk-stage-label" style="color:#0E7CCE">Passes through every stage:</div>
-          <div class="pk-items">
-            <span class="pk-drop"></span>100% Pure water
-          </div>
+          <div class="panim-pills"><div class="panim-pill">0.2 micron rated</div><div class="panim-pill">ALS certified</div></div>
         </div>
       </div>
     </div>
-    </div><!-- /anim-wrap -->
+
+    <div class="panim-cta rev">
+      <a href="process.html" target="_blank">Full process details &rarr;</a>
+    </div>
   </div>
 </section>
 
-<!-- THREE STAGES SUMMARY -->
-<section style="background:var(--ice); padding:clamp(40px,6vh,70px) 0">
+<!-- Three stages summary -->
+<section style="background:var(--white);padding:clamp(40px,6vh,60px) 0">
   <div class="wrap">
-    <div class="stages-grid">
-      <div class="sg-card c1">
-        <div class="sg-num">1</div>
-        <div class="sg-label">First stage</div>
+    <div class="stages">
+      <div class="stage rev" style="border-left-color:var(--navy)">
+        <div class="n">First stage</div>
         <h3>Filtration</h3>
         <p>Carbon and inorganic media remove chlorine, nitrates, iron and sediment. This conditions the water before the high-pressure membrane step.</p>
       </div>
-      <div class="sg-card c2">
-        <div class="sg-num">2</div>
-        <div class="sg-label">Second stage</div>
+      <div class="stage rev" style="border-left-color:var(--blue)">
+        <div class="n">Second stage</div>
         <h3>Reverse osmosis</h3>
         <p>Water is forced through semi-permeable membranes at high pressure. Fluoride, sodium, PFAS and dissolved solids are rejected at the membrane.</p>
       </div>
-      <div class="sg-card c3">
-        <div class="sg-num">3</div>
-        <div class="sg-label">Third stage</div>
+      <div class="stage rev" style="border-left-color:#27AE60">
+        <div class="n">Third stage</div>
         <h3>Biological filters</h3>
         <p>0.2-micron biological filters remove any remaining bacteria and microbes. Samples go to ALS for independent verification every single production run.</p>
       </div>
@@ -887,80 +744,42 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
   </div>
 </section>
 
-<!-- WHAT IS REMOVED -->
-<section class="removes-section">
+<!-- What is removed -->
+<section class="proc-removes">
   <div class="wrap">
     <h2>What the Pureau process removes</h2>
-    <p class="sub">These are the substances found in Australian tap water and many bottled waters that do not exist in Pureau.</p>
-    <div class="remove-grid">
-      <div class="re-item">
-        <div class="badge f1">Stage 1</div>
-        <div class="label">Chlorine</div>
-        <div class="note">Added to tap water as a disinfectant. Carbon filtration removes it completely.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f1">Stage 1</div>
-        <div class="label">Nitrates</div>
-        <div class="note">Common in agricultural catchments. Removed by specialised inorganic media.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f1">Stage 1</div>
-        <div class="label">Iron and sediment</div>
-        <div class="note">Dissolved metals and particulate matter from infrastructure and source water.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f2">Stage 2</div>
-        <div class="label">Fluoride</div>
-        <div class="note">State-mandated addition to tap water. Rejected by the reverse osmosis membrane.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f2">Stage 2</div>
-        <div class="label">Sodium</div>
-        <div class="note">Dissolved sodium salts present in most Australian tap and spring waters.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f2">Stage 2</div>
-        <div class="label">PFAS</div>
-        <div class="note">Per- and polyfluoroalkyl "forever chemicals" detected in some Australian catchments.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f2">Stage 2</div>
-        <div class="label">Heavy metals</div>
-        <div class="note">Lead, arsenic, mercury and other dissolved metals blocked by the RO membrane.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f3">Stage 3</div>
-        <div class="label">Bacteria</div>
-        <div class="note">All known bacteria are larger than 0.2 microns and cannot pass the biological filter.</div>
-      </div>
-      <div class="re-item">
-        <div class="badge f3">Stage 3</div>
-        <div class="label">Viruses and microbes</div>
-        <div class="note">Sub-micron organisms removed by the biological filtration stage.</div>
-      </div>
+    <p class="proc-removes-sub">These are the substances found in Australian tap water and many bottled waters that do not exist in Pureau.</p>
+    <div class="proc-rem-grid">
+      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Chlorine</div><div class="proc-rem-note">Added to tap water as a disinfectant. Carbon filtration removes it completely.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Nitrates</div><div class="proc-rem-note">Common in agricultural catchments. Removed by specialised inorganic media.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Iron and sediment</div><div class="proc-rem-note">Dissolved metals and particulate matter from infrastructure and source water.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Fluoride</div><div class="proc-rem-note">State-mandated addition to tap water. Rejected by the reverse osmosis membrane.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Sodium</div><div class="proc-rem-note">Dissolved sodium salts present in most Australian tap and spring waters.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">PFAS</div><div class="proc-rem-note">Per- and polyfluoroalkyl "forever chemicals" detected in some Australian catchments.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Heavy metals</div><div class="proc-rem-note">Lead, arsenic, mercury and other dissolved metals blocked by the RO membrane.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb3">Stage 3</div><div class="proc-rem-name">Bacteria</div><div class="proc-rem-note">All known bacteria are larger than 0.2 microns and cannot pass the biological filter.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb3">Stage 3</div><div class="proc-rem-name">Viruses and microbes</div><div class="proc-rem-note">Sub-micron organisms removed by the biological filtration stage.</div></div>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof">
+<!-- Proof band -->
+<section class="proc-proof">
   <div class="wrap">
-    <div class="proof-inner">
-      <div>
+    <div class="proc-proof-inner">
+      <div class="rev">
         <h2>Independently verified. Every run.</h2>
         <p>Pureau sends samples to Australian Laboratory Services (ALS) daily across every production run at our Erskine Park facility. Results are reviewed and signed off before any product leaves the site.</p>
-        <p>Home filtration systems have no equivalent verification. They produce water of variable quality — depending on when filters were last replaced, the condition of the storage bladder, and the source water temperature.</p>
+        <p>Home filtration systems have no equivalent verification. They produce water of variable quality depending on when filters were last replaced, the condition of the storage bladder, and the source water temperature.</p>
       </div>
-      <div style="text-align:center">
-        <div class="big-stat">Every</div>
-        <div class="big-stat">run.</div>
-        <div class="stat-label" style="font-size:16px;margin-top:10px;color:var(--navy);font-weight:600">Not batch tested. Not sampled. Every single production run.</div>
+      <div style="text-align:center" class="rev">
+        <div class="proc-big-stat">Every</div>
+        <div class="proc-big-stat">run.</div>
+        <div class="proc-stat-note">Not batch tested. Not sampled. Every single production run.</div>
       </div>
     </div>
   </div>
 </section>
-</div>
-
 
 <!-- ===== TRADE ===== -->
 <section class="rocompare" id="ro-compare">
@@ -1142,320 +961,70 @@ li.forEach(el=>lo.observe(el));
 const rt=document.getElementById('rt');
 rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review');rt.textContent=on?'Review mode: on':'Review mode';});
 
-// ── Main-page process animation ──
+
+
+// ── Process animation ──
 (function() {
-  var mpCanvas = document.getElementById('mp-particle-canvas');
-  if (!mpCanvas) return;
-  var mpCtx = mpCanvas.getContext('2d');
-  function mpResize() {
-    var col = document.getElementById('mp-filter-col');
-    if (col) { mpCanvas.width = col.offsetWidth; mpCanvas.height = col.offsetHeight; }
+  var c = document.getElementById('panim-canvas');
+  if (!c) return;
+  var ctx = c.getContext('2d');
+  function resize() {
+    var col = document.getElementById('panim-col');
+    if (col) { c.width = col.offsetWidth; c.height = col.offsetHeight; }
   }
-  mpResize();
-  window.addEventListener('resize', mpResize);
-  var MP_FILTER_Y = function(){ return [mpCanvas.height*0.218, mpCanvas.height*0.503, mpCanvas.height*0.788]; };
-  var MP_PURE_Y   = function(){ return mpCanvas.height * 0.91; };
-  var MP_TYPES = [
+  resize();
+  window.addEventListener('resize', resize);
+  var FY = function(){ return [c.height*0.218, c.height*0.503, c.height*0.788]; };
+  var PY = function(){ return c.height*0.91; };
+  var PT = [
     {id:'chlorine', col:'#4BA3DC', r:5, stop:1, label:'Cl'},
     {id:'nitrate',  col:'#E67E22', r:6, stop:1, label:'NO3'},
-    {id:'sediment', col:'#A0856B', r:7, stop:1, label:'•'},
+    {id:'sediment', col:'#A0856B', r:7, stop:1, label:''},
     {id:'fluoride', col:'#F1C40F', r:4, stop:2, label:'F'},
     {id:'sodium',   col:'#E8192C', r:4, stop:2, label:'Na'},
-    {id:'dissolved',col:'#95A5A6', r:3, stop:2, label:'•'},
+    {id:'dissolved',col:'#95A5A6', r:3, stop:2, label:''},
     {id:'bacteria', col:'#C0392B', r:5, stop:3, label:'BK'},
-    {id:'microbe',  col:'#922B21', r:3, stop:3, label:'•'},
+    {id:'microbe',  col:'#922B21', r:3, stop:3, label:''},
     {id:'water',    col:'#0099D7', r:3, stop:0, label:''}
   ];
-  var mpParts = [], mpFrame = 0, mpHL = 0, mpStT = 0;
-  function mpSpawn() {
-    var isW = Math.random() < 0.45;
-    var t = isW ? MP_TYPES[8] : MP_TYPES[Math.floor(Math.random()*8)];
-    mpParts.push({x:20+Math.random()*(mpCanvas.width-40),y:30,
-      vy:0.6+Math.random()*0.8,vx:(Math.random()-0.5)*0.3,
-      type:t,r:t.r*(0.8+Math.random()*0.4),alpha:0.85+Math.random()*0.15,
-      stopped:false,age:0,fadeAlpha:1});
+  var parts=[], frame=0, hl=0, stT=0;
+  function spawn() {
+    var isW=Math.random()<0.45, t=isW?PT[8]:PT[Math.floor(Math.random()*8)];
+    parts.push({x:20+Math.random()*(c.width-40),y:30,vy:0.6+Math.random()*0.8,
+      vx:(Math.random()-0.5)*0.3,type:t,r:t.r*(0.8+Math.random()*0.4),
+      alpha:0.85+Math.random()*0.15,stopped:false,age:0,fadeAlpha:1});
   }
-  function mpStopY(s) {
-    var fy=MP_FILTER_Y();
-    if(s===1) return fy[0]-2; if(s===2) return fy[1]-2; if(s===3) return fy[2]-2;
-    return MP_PURE_Y();
+  function stopY(s){var fy=FY();if(s===1)return fy[0]-2;if(s===2)return fy[1]-2;if(s===3)return fy[2]-2;return PY();}
+  function droplet(x,y,r){ctx.beginPath();ctx.moveTo(x,y-r*1.4);ctx.bezierCurveTo(x+r*1.1,y-r*0.3,x+r,y+r*0.7,x,y+r);ctx.bezierCurveTo(x-r,y+r*0.7,x-r*1.1,y-r*0.3,x,y-r*1.4);ctx.closePath();}
+  function draw(p) {
+    if(p.fadeAlpha<=0)return;
+    ctx.save();ctx.globalAlpha=p.alpha*p.fadeAlpha;
+    if(p.type.id==='water'){droplet(p.x,p.y,p.r);ctx.fillStyle=p.type.col;ctx.fill();ctx.beginPath();ctx.arc(p.x-p.r*0.3,p.y-p.r*0.45,p.r*0.28,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.5)';ctx.fill();}
+    else{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.type.col;ctx.fill();if(p.type.stop>0&&!p.stopped&&p.r>4){ctx.font='bold '+Math.max(7,p.r*1.6)+'px Arial';ctx.fillStyle='#fff';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(p.type.label,p.x,p.y);}}
+    ctx.restore();
   }
-  function mpDroplet(x,y,r) {
-    mpCtx.beginPath();
-    mpCtx.moveTo(x,y-r*1.4);
-    mpCtx.bezierCurveTo(x+r*1.1,y-r*0.3,x+r,y+r*0.7,x,y+r);
-    mpCtx.bezierCurveTo(x-r,y+r*0.7,x-r*1.1,y-r*0.3,x,y-r*1.4);
-    mpCtx.closePath();
-  }
-  function mpDraw(p) {
-    if(p.fadeAlpha<=0) return;
-    mpCtx.save(); mpCtx.globalAlpha=p.alpha*p.fadeAlpha;
-    if(p.type.id==='water') {
-      mpDroplet(p.x,p.y,p.r); mpCtx.fillStyle=p.type.col; mpCtx.fill();
-      mpCtx.beginPath(); mpCtx.arc(p.x-p.r*0.3,p.y-p.r*0.45,p.r*0.28,0,Math.PI*2);
-      mpCtx.fillStyle='rgba(255,255,255,0.5)'; mpCtx.fill();
-    } else {
-      mpCtx.beginPath(); mpCtx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      mpCtx.fillStyle=p.type.col; mpCtx.fill();
-      if(p.type.stop>0&&!p.stopped&&p.r>4){
-        mpCtx.font='bold '+Math.max(7,p.r*1.6)+'px Arial';
-        mpCtx.fillStyle='#fff'; mpCtx.textAlign='center'; mpCtx.textBaseline='middle';
-        mpCtx.fillText(p.type.label,p.x,p.y);
-      }
-    }
-    mpCtx.restore();
-  }
-  window.mpShowStage = function(n) {
-    document.querySelectorAll('.mp-scard').forEach(function(c){c.classList.remove('active')});
-    document.querySelectorAll('.mp-stab').forEach(function(t){t.classList.remove('active')});
-    var card=document.getElementById('mp-sc'+n);
-    var tabs=document.querySelectorAll('.mp-stab');
-    if(card) card.classList.add('active');
-    if(tabs[n-1]) tabs[n-1].classList.add('active');
-    ['mp-fl1','mp-fl2','mp-fl3'].forEach(function(id,i){
-      var el=document.getElementById(id);
-      if(el) el.classList.toggle('active', i===n-1);
-    });
+  window.pShowStage = function(n) {
+    document.querySelectorAll('.panim-card').forEach(function(el){el.classList.remove('active');});
+    document.querySelectorAll('.panim-tab').forEach(function(el){el.classList.remove('active');});
+    var card=document.getElementById('panim-sc'+n), tabs=document.querySelectorAll('.panim-tab');
+    if(card)card.classList.add('active');
+    if(tabs[n-1])tabs[n-1].classList.add('active');
+    ['panim-l1','panim-l2','panim-l3'].forEach(function(id,i){var el=document.getElementById(id);if(el)el.classList.toggle('active',i===n-1);});
   };
-  function mpLoop() {
-    requestAnimationFrame(mpLoop);
-    mpCtx.clearRect(0,0,mpCanvas.width,mpCanvas.height);
-    mpFrame++; mpStT++;
-    if(mpFrame%4===0&&mpParts.length<80) mpSpawn();
-    if(mpStT>1800){mpStT=0;mpHL=(mpHL%3)+1;window.mpShowStage(mpHL);}
-    var fy=MP_FILTER_Y();
-    var cols=['rgba(6,90,130,','rgba(0,153,215,','rgba(39,174,96,'];
-    var glows=['#065A82','#0099D7','#27AE60'];
-    for(var i=0;i<3;i++){
-      var y=fy[i], h=mpCanvas.height*0.065, act=(mpHL===i+1);
-      mpCtx.save(); mpCtx.fillStyle=cols[i]+(act?'0.2)':'0.08)');
-      mpCtx.fillRect(0,y,mpCanvas.width,h);
-      if(act){mpCtx.shadowColor=glows[i];mpCtx.shadowBlur=12;
-        mpCtx.strokeStyle=cols[i]+'0.6)';mpCtx.lineWidth=2;
-        mpCtx.strokeRect(0,y,mpCanvas.width,h);}
-      mpCtx.restore();
-    }
-    mpParts=mpParts.filter(function(p){return p.y<mpCanvas.height+20&&p.fadeAlpha>0.01;});
-    for(var j=0;j<mpParts.length;j++){
-      var p=mpParts[j]; p.age++;
-      if(!p.stopped){
-        var sy=mpStopY(p.type.stop);
-        if(p.y>=sy&&p.type.stop>0){p.stopped=true;p.vy=0;}
-        else{p.y+=p.vy;p.x+=p.vx;
-          if(p.x<p.r) p.vx=Math.abs(p.vx);
-          if(p.x>mpCanvas.width-p.r) p.vx=-Math.abs(p.vx);}
-      }
-      if(p.stopped&&p.age>60) p.fadeAlpha-=0.015;
-      mpDraw(p);
-    }
-    mpCtx.save(); mpCtx.strokeStyle='rgba(0,153,215,0.3)';
-    mpCtx.lineWidth=1; mpCtx.setLineDash([4,6]);
-    mpCtx.beginPath(); mpCtx.moveTo(0,MP_PURE_Y()+8); mpCtx.lineTo(mpCanvas.width,MP_PURE_Y()+8);
-    mpCtx.stroke(); mpCtx.restore();
+  function loop(){
+    requestAnimationFrame(loop);
+    ctx.clearRect(0,0,c.width,c.height);
+    frame++;stT++;
+    if(frame%4===0&&parts.length<80)spawn();
+    if(stT>1800){stT=0;hl=(hl%3)+1;window.pShowStage(hl);}
+    var fy=FY(),cols=['rgba(6,90,130,','rgba(0,153,215,','rgba(39,174,96,'],glows=['#065A82','#0099D7','#27AE60'];
+    for(var i=0;i<3;i++){var y=fy[i],h=c.height*0.065,act=(hl===i+1);ctx.save();ctx.fillStyle=cols[i]+(act?'0.2)':'0.08)');ctx.fillRect(0,y,c.width,h);if(act){ctx.shadowColor=glows[i];ctx.shadowBlur=12;ctx.strokeStyle=cols[i]+'0.6)';ctx.lineWidth=2;ctx.strokeRect(0,y,c.width,h);}ctx.restore();}
+    parts=parts.filter(function(p){return p.y<c.height+20&&p.fadeAlpha>0.01;});
+    for(var j=0;j<parts.length;j++){var p=parts[j];p.age++;if(!p.stopped){var sy=stopY(p.type.stop);if(p.y>=sy&&p.type.stop>0){p.stopped=true;p.vy=0;}else{p.y+=p.vy;p.x+=p.vx;if(p.x<p.r)p.vx=Math.abs(p.vx);if(p.x>c.width-p.r)p.vx=-Math.abs(p.vx);}}if(p.stopped&&p.age>60)p.fadeAlpha-=0.015;draw(p);}
+    ctx.save();ctx.strokeStyle='rgba(0,153,215,0.3)';ctx.lineWidth=1;ctx.setLineDash([4,6]);ctx.beginPath();ctx.moveTo(0,PY()+8);ctx.lineTo(c.width,PY()+8);ctx.stroke();ctx.restore();
   }
-  window.mpShowStage(1);
-  mpLoop();
-})();
-
-// ── Embedded process animation ──
-(function() {
-
-// ── Stage tabs ──
-function procShowStage(n) {
-  document.querySelectorAll('.scard').forEach(c => c.classList.remove('active'));
-  document.querySelectorAll('.stab').forEach(t => t.classList.remove('active'));
-  document.getElementById('proc-sc' + n).classList.add('active');
-  document.querySelectorAll('.stab')[n-1].classList.add('active');
-  ['fl1','fl2','fl3'].forEach((id,i) => {
-    document.getElementById(id).classList.toggle('active', i === n-1);
-  });
-}
-
-// ── Particle animation ──
-const procCanvas = document.getElementById('proc-particle-canvas');
-const procCtx = procCanvas.getContext('2d');
-
-function procResize() {
-  const procCol = document.getElementById('proc-filter-col');
-  procCanvas.width = procCol.offsetWidth;
-  procCanvas.height = procCol.offsetHeight;
-}
-procResize();
-window.addEventListener('resize', procResize);
-
-// Filter Y positions (relative to canvas height)
-const PROC_COL_H = () => procCanvas.height;
-const PROC_FILTER_Y = () => [
-  procCanvas.height * 0.218,   // Stage 1 top
-  procCanvas.height * 0.503,   // Stage 2 top
-  procCanvas.height * 0.788,   // Stage 3 top
-];
-const PROC_PURE_Y = () => procCanvas.height * 0.91;
-
-// Particle definitions — type, color, radius, stops-at-filter(0=none passes through,1,2,3)
-const P_TYPES = [
-  { id:'chlorine',   col:'#4BA3DC', r:5, stop:1, label:'Cl' },
-  { id:'nitrate',    col:'#E67E22', r:6, stop:1, label:'NO₃' },
-  { id:'sediment',   col:'#A0856B', r:7, stop:1, label:'•' },
-  { id:'fluoride',   col:'#F1C40F', r:4, stop:2, label:'F' },
-  { id:'sodium',     col:'#E8192C', r:4, stop:2, label:'Na' },
-  { id:'dissolved',  col:'#95A5A6', r:3, stop:2, label:'•' },
-  { id:'bacteria',   col:'#C0392B', r:5, stop:3, label:'BK' },
-  { id:'microbe',    col:'#922B21', r:3, stop:3, label:'•' },
-  { id:'water',      col:'#0E7CCE', r:3, stop:0, label:'' },
-];
-
-let procParticles = [];
-let procFrame = 0;
-let procHighlighted = 0; // which stage is currently animating (0 = intro, 1-3 = stages)
-let procStageTimer = 0;
-
-function procSpawnParticle() {
-  const type = P_TYPES[Math.floor(Math.random() * P_TYPES.length)];
-  const isWater = type.id === 'water' || Math.random() < 0.45;
-  const t = isWater ? P_TYPES[8] : P_TYPES[Math.floor(Math.random() * 8)];
-  procParticles.push({
-    x: 20 + Math.random() * (procCanvas.width - 40),
-    y: 30,
-    vy: 0.6 + Math.random() * 0.8,
-    vx: (Math.random() - 0.5) * 0.3,
-    type: t,
-    r: t.r * (0.8 + Math.random() * 0.4),
-    alpha: 0.85 + Math.random() * 0.15,
-    stopped: false,
-    stopY: 0,
-    age: 0,
-    fadeOut: false,
-    fadeAlpha: 1,
-  });
-}
-
-function procGetStopY(stop) {
-  const fy = PROC_FILTER_Y();
-  const ch = procCanvas.height;
-  if (stop === 1) return fy[0] - 2;
-  if (stop === 2) return fy[1] - 2;
-  if (stop === 3) return fy[2] - 2;
-  return PROC_PURE_Y();
-}
-
-function procDrawDropletShape(x, y, r) {
-  procCtx.beginPath();
-  procCtx.moveTo(x, y - r * 1.4);
-  procCtx.bezierCurveTo(x + r * 1.1, y - r * 0.3, x + r, y + r * 0.7, x, y + r);
-  procCtx.bezierCurveTo(x - r, y + r * 0.7, x - r * 1.1, y - r * 0.3, x, y - r * 1.4);
-  procCtx.closePath();
-}
-function procDrawParticle(p) {
-  if (p.fadeAlpha <= 0) return;
-  procCtx.save();
-  procCtx.globalAlpha = p.alpha * p.fadeAlpha;
-  if (p.type.id === 'water') {
-    procDrawDropletShape(p.x, p.y, p.r);
-    procCtx.fillStyle = p.type.col;
-    procCtx.fill();
-    // Highlight shine
-    procCtx.beginPath();
-    procCtx.arc(p.x - p.r * 0.3, p.y - p.r * 0.45, p.r * 0.28, 0, Math.PI * 2);
-    procCtx.fillStyle = 'rgba(255,255,255,0.5)';
-    procCtx.fill();
-  } else {
-    procCtx.beginPath();
-    procCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    procCtx.fillStyle = p.type.col;
-    procCtx.fill();
-    if (p.type.stop > 0 && !p.stopped && p.r > 4) {
-      procCtx.font = `bold ${Math.max(7, p.r * 1.6)}px Arial`;
-      procCtx.fillStyle = '#fff';
-      procCtx.textAlign = 'center';
-      procCtx.textBaseline = 'middle';
-      procCtx.fillText(p.type.label, p.x, p.y);
-    }
-  }
-  procCtx.restore();
-}
-
-function procAnimate() {
-  requestAnimationFrame(procAnimate);
-  procCtx.clearRect(0, 0, procCanvas.width, procCanvas.height);
-
-  procFrame++;
-  procStageTimer++;
-
-  // Spawn particles
-  if (procFrame % 4 === 0 && particles.length < 80) spawnParticle();
-
-  // Auto-advance stage highlight every 3 seconds
-  if (procStageTimer > 1800) {
-    procStageTimer = 0;
-    procHighlighted = (procHighlighted % 3) + 1;
-    procShowStage(procHighlighted);
-  }
-
-  const fy = PROC_FILTER_Y();
-
-  // Draw filter layers (glow when active)
-  for (let i = 0; i < 3; i++) {
-    const y = fy[i];
-    const h = procCanvas.height * 0.065;
-    const isActive = (procHighlighted === i + 1);
-    const colors = ['rgba(27,42,74,', 'rgba(14,124,206,', 'rgba(39,174,96,'];
-    procCtx.save();
-    procCtx.fillStyle = colors[i] + (isActive ? '0.2)' : '0.08)');
-    procCtx.fillRect(0, y, procCanvas.width, h);
-    if (isActive) {
-      procCtx.shadowColor = ['#1B2A4A','#0E7CCE','#27AE60'][i];
-      procCtx.shadowBlur = 12;
-      procCtx.strokeStyle = ['rgba(27,42,74,.6)','rgba(14,124,206,.6)','rgba(39,174,96,.6)'][i];
-      procCtx.lineWidth = 2;
-      procCtx.strokeRect(0, y, procCanvas.width, h);
-    }
-    procCtx.restore();
-  }
-
-  // Update and draw particles
-  particles = procParticles.filter(p => p.y < procCanvas.height + 20 && p.fadeAlpha > 0.01);
-
-  for (const p of procParticles) {
-    p.age++;
-    if (!p.stopped) {
-      const stopY = procGetStopY(p.type.stop);
-      if (p.y >= stopY && p.type.stop > 0) {
-        p.stopped = true;
-        p.stopY = stopY;
-        p.vy = 0;
-      } else {
-        p.y += p.vy;
-        p.x += p.vx;
-        // Keep in bounds
-        if (p.x < p.r) p.vx = Math.abs(p.vx);
-        if (p.x > procCanvas.width - p.r) p.vx = -Math.abs(p.vx);
-      }
-    }
-    // Stopped particles fade out after a moment
-    if (p.stopped && p.age > 60) {
-      p.fadeAlpha -= 0.015;
-    }
-    procDrawParticle(p);
-  }
-
-  // Draw "pure water" line at exit
-  procCtx.save();
-  procCtx.strokeStyle = 'rgba(14,124,206,0.3)';
-  procCtx.lineWidth = 1;
-  procCtx.setLineDash([4, 6]);
-  procCtx.beginPath();
-  procCtx.moveTo(0, PROC_PURE_Y() + 8);
-  procCtx.lineTo(procCanvas.width, PROC_PURE_Y() + 8);
-  procCtx.stroke();
-  procCtx.restore();
-}
-
-procAnimate();
-
-// Kick off with Stage 1 highlighted
-procShowStage(1);
-
+  window.pShowStage(1);
+  loop();
 })();
 </script>
 </body>
