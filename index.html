@@ -223,9 +223,9 @@ section{padding:clamp(64px,10vh,120px) 0}
 .rodata-note a{color:var(--blue); text-decoration:none}
 .rodata-note a:hover{text-decoration:underline}
 .rodata-note strong{color:var(--navy); font-size:13px}
-.rodiff{background:var(--navy); color:#fff; border-radius:4px; padding:clamp(28px,3vw,44px); margin-top:8px}
+.rodiff{background:var(--blue); color:#fff; border-radius:4px; padding:clamp(28px,3vw,44px); margin-top:8px}
 .rodiff-claim{font-family:var(--disp); font-size:clamp(22px,3vw,32px); font-weight:700; color:#fff; margin-bottom:16px; line-height:1.2}
-.rodiff p{font-size:16px; color:#C9DBEA; margin:0; line-height:1.7}
+.rodiff p{font-size:16px; color:#D6EFFA; margin:0 0 16px; line-height:1.7}
 
 /* ---------- Trade ---------- */
 .trade{background:var(--white)}
@@ -304,8 +304,8 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     @media(max-width:760px){.panim-grid{grid-template-columns:1fr;gap:28px}}
     .panim-col{position:relative;width:100%;max-width:460px;margin:0 auto;height:620px;background:#E8F4FD;border-radius:12px;overflow:hidden;border:2px solid var(--line)}
     .panim-label{text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:10px 0;background:rgba(255,255,255,.7);font-family:var(--f)}
-    #panim-top{color:var(--muted);border-bottom:1px dashed var(--line)}
-    .panim-pure{border-top:2px solid var(--blue);background:rgba(0,153,215,.1);padding:12px 8px}
+    #panim-top{position:absolute;top:0;left:0;right:0;z-index:12;color:var(--muted);border-bottom:1px dashed var(--line)}
+    .panim-pure{position:absolute;bottom:0;left:0;right:0;z-index:12;border-top:2px solid var(--blue);background:rgba(0,153,215,.1);padding:12px 8px}
     .panim-layer{position:absolute;left:0;right:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:box-shadow .4s;cursor:default;z-index:10;font-family:var(--f)}
     #panim-l1{top:135px;height:34px;background:rgba(6,90,130,.12);border-top:2px solid rgba(6,90,130,.3);border-bottom:2px solid rgba(6,90,130,.3);color:var(--navy)}
     #panim-l2{top:312px;height:34px;background:rgba(0,153,215,.15);border-top:2px solid rgba(0,153,215,.4);border-bottom:2px solid rgba(0,153,215,.4);color:var(--blue)}
@@ -862,7 +862,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     <div class="rodiff rev">
       <p class="rodiff-claim">A home Reverse Osmosis cannot produce Pureau.</p>
       <p>The pressure is not high enough. The pre-treatment beds are not there. The biological filtration stage after the membrane does not exist. The storage tank introduces contamination the membrane just removed. And there is no daily laboratory test to tell you any of this is happening.</p>
-      <p style="margin-top:16px; color:#8FBDD3; font-size:14px">Pureau operates at industrial membrane pressures home systems cannot physically reach, through carbon and sand pre-treatment banks, through a three-stage process that ends with biological filtration to 0.2 microns absolute — then sealed, not stored in rubber. Every production run is tested independently. Not occasionally. Every run.</p>
+      <p>Pureau operates at industrial membrane pressures home systems cannot physically reach, through carbon and sand pre-treatment banks, through a three-stage process that ends with biological filtration to 0.2 microns absolute — then sealed, not stored in rubber. Every production run is tested independently. Not occasionally. Every run.</p>
     </div>
   </div>
 </section>
@@ -982,7 +982,7 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
     {id:'dissolved',col:'#95A5A6', r:3, stop:2, label:''},
     {id:'bacteria', col:'#C0392B', r:5, stop:3, label:'BK'},
     {id:'microbe',  col:'#922B21', r:3, stop:3, label:''},
-    {id:'water',    col:'#0099D7', r:3, stop:0, label:''}
+    {id:'water',    col:'#0099D7', r:7, stop:0, label:''}
   ];
   var parts=[], frame=0, hl=0, stT=0;
   function spawn() {
