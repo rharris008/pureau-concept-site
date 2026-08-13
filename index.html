@@ -499,6 +499,38 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     .proc-big-stat{font-size:48px;font-weight:900;color:var(--blue);line-height:1;font-family:var(--disp)}
     .proc-stat-note{font-size:14px;color:var(--muted);margin-top:6px}
 
+    /* ── FAQ section ── */
+    .pfaq{background:var(--tint);padding:clamp(60px,8vh,90px) 0}
+    .faq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px);margin-top:clamp(28px,4vh,44px)}
+    @media(max-width:900px){.faq-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.faq-grid{grid-template-columns:1fr}}
+    .faq-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,28px)}
+    .faq-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.35}
+    .faq-card p{font-size:14px;color:var(--body);line-height:1.65}
+
+    /* ── Mineral content section ── */
+    .mineral{background:var(--white);padding:clamp(60px,8vh,90px) 0}
+    .notdet-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(12px,1.5vw,18px);margin:clamp(28px,4vh,44px) 0}
+    @media(max-width:900px){.notdet-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:560px){.notdet-grid{grid-template-columns:repeat(2,1fr)}}
+    .notdet-card{background:var(--tint);border-radius:10px;padding:clamp(14px,2vw,22px);text-align:center}
+    .notdet-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:6px}
+    .notdet-val{font-size:20px;font-weight:900;color:var(--navy);font-family:var(--disp);line-height:1.1;margin-bottom:4px}
+    .notdet-sub{font-size:11px;color:var(--muted)}
+    .mineral-table-wrap{margin-top:clamp(32px,5vh,50px);overflow-x:auto}
+    .mineral-table{width:100%;border-collapse:collapse;font-size:14px}
+    .mineral-table th{background:var(--navy);color:#fff;padding:10px 18px;text-align:left;font-size:13px;font-weight:700}
+    .mineral-table td{padding:10px 18px;border-bottom:1px solid var(--line)}
+    .mineral-table tr:nth-child(even) td{background:var(--tint)}
+    .mineral-table .zero{color:var(--blue);font-weight:700}
+    .mineral-source{font-size:12px;color:var(--muted);margin-top:12px}
+
+    /* ── RAAF credential badge ── */
+    .raaf-badge{display:inline-flex;align-items:center;gap:10px;background:var(--tint);border:1px solid var(--line);border-radius:8px;padding:12px 18px;margin-top:20px}
+    .raaf-badge-icon{font-size:22px;flex-shrink:0}
+    .raaf-badge-text{font-size:13px;color:var(--navy);font-weight:600;line-height:1.4}
+    .raaf-badge-text span{display:block;font-size:11px;font-weight:400;color:var(--muted)}
+
 </style>
 </head>
 <body>
@@ -512,7 +544,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
       <a href="#everyday">Everyday</a>
       <a href="#range">Range</a>
       <a href="#process">The process</a>
-      <a href="faq.html" target="_blank">FAQs</a>
+      <a href="#faq">FAQs</a>
       <a class="cta" href="#buy">Where to buy</a>
     </nav>
   </div>
@@ -899,6 +931,10 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
         <h2>Independently verified. Every run.</h2>
         <p>Pureau sends samples to Australian Laboratory Services (ALS) daily across every production run at our Erskine Park facility. Results are reviewed and signed off before any product leaves the site.</p>
         <p>Home filtration systems have no equivalent verification. They produce water of variable quality depending on when filters were last replaced, the condition of the storage bladder, and the source water temperature.</p>
+        <div class="raaf-badge">
+          <span class="raaf-badge-icon">&#9992;</span>
+          <div class="raaf-badge-text">Only supplier of survival drinking water to the RAAF<span>Royal Australian Air Force — Aircraft Life Support Equipment Division</span></div>
+        </div>
       </div>
       <div style="text-align:center" class="rev">
         <div class="proc-big-stat">Every</div>
@@ -997,6 +1033,147 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     </div>
   </div>
 </section>
+
+<section class="pfaq" id="faq">
+  <div class="wrap">
+    <div class="hdr rev">
+      <p class="eyebrow">Common questions</p>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3>What is Pureau?</h3>
+        <p>Pureau is 100% purified water produced through a three-stage industrial process: carbon and sand filtration, high-pressure reverse osmosis, and 0.2-micron biological filtration. It contains no minerals, fluoride, chlorine, sodium, PFAS or bacteria.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Does Pureau contain fluoride?</h3>
+        <p>No. Australian tap water is fluoridated by state water authorities. The Pureau reverse osmosis process removes fluoride completely. Confirmed by independent ALS laboratory testing across every production run.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Is Pureau safe for babies and formula?</h3>
+        <p>Yes. Pureau contains no sodium, fluoride, nitrates or other additives, making it suitable for preparing infant formula. Always follow your healthcare provider&#8217;s advice.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Is Pureau tested regularly?</h3>
+        <p>Yes. Pureau sends samples to Australian Laboratory Services (ALS) across every production run. Results are reviewed before any product leaves the facility. Not batch tested. Not sampled. Every run.</p>
+      </div>
+      <div class="faq-card">
+        <h3>How can you be sure there is no contamination during production?</h3>
+        <p>All piping in the Pureau facility is food-grade stainless steel. Every morning, 45 minutes before production begins, the entire system is steam sterilised. No cleaning chemicals are used &#8212; steam is the sterilant. The water never touches anything that could reintroduce contamination.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Is Pureau tested for microplastics?</h3>
+        <p>Microplastic testing is not part of the daily ALS protocol. Pureau operates a strict approved supplier programme for all packaging materials, and the 0.2-micron biological filtration stage removes particles down to sub-micron levels. This is significantly smaller than microplastic particles.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Why does pure water have a lower pH?</h3>
+        <p>Pureau leaves the facility at pH 7.1&#8211;7.4. Without dissolved minerals to act as buffers, the water absorbs a small amount of CO&#x2082; from the air, lowering the pH over time. This is normal chemistry &#8212; the same process that occurs with rainwater &#8212; and has no health significance.</p>
+      </div>
+      <div class="faq-card">
+        <h3>What formats does Pureau come in?</h3>
+        <p>600 mL bottles (6-pack and 12-pack), 2 L bottles, 5 L Bag in Box casks and 10 L Bag in Box casks. The cask&#8217;s inner bag collapses as water is dispensed, keeping the remaining water sealed from air.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Is the packaging recyclable?</h3>
+        <p>The outer carton is fully recyclable kerbside. The inner bag is accepted at REDcycle soft plastics collection points at major supermarkets. One 10 L cask replaces 17 individual 600 mL plastic bottles.</p>
+      </div>
+      <div class="faq-card">
+        <h3>How long does an open cask last?</h3>
+        <p>Once tapped, use within 30 days and keep out of direct sunlight. The Bag in Box design keeps air out as water is dispensed, so the water stays fresh throughout.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Where is Pureau made?</h3>
+        <p>Pureau is manufactured at the Erskine Park facility in Western Sydney, operated by Australian Beverage Holdings. Australian owned and operated since 1987.</p>
+      </div>
+      <div class="faq-card">
+        <h3>Where can I buy Pureau?</h3>
+        <p>Pureau is available at Woolworths, Coles and IGA stores nationally, and online via Woolworths, Coles and Amazon AU for home delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mineral" id="mineral">
+  <div class="wrap">
+    <div class="hdr rev">
+      <p class="eyebrow">What&#8217;s in it</p>
+      <h2>Nothing added. Nothing left in.</h2>
+      <p class="lede">Pureau is purified water. No minerals, electrolytes or additives are introduced at any stage of production. The Pureau process removes everything &#8212; including what most water brands consider acceptable to leave in.</p>
+    </div>
+    <div class="notdet-grid">
+      <div class="notdet-card">
+        <div class="notdet-label">Sodium</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Chlorides</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Fluoride</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">PFAS</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Calcium</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Potassium</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Bicarbonates</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Sulphates</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Nitrates</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+      <div class="notdet-card">
+        <div class="notdet-label">Magnesium</div>
+        <div class="notdet-val">0 mg/L</div>
+        <div class="notdet-sub">Not detected</div>
+      </div>
+    </div>
+    <div class="mineral-table-wrap">
+      <p class="eyebrow" style="margin-bottom:8px">Standard food and beverage analysis</p>
+      <table class="mineral-table">
+        <thead>
+          <tr><th>Substance</th><th>Result (mg/L)</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sodium</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Chlorides</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Calcium</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Potassium</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Bicarbonates</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Sulphates</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Nitrates</td><td class="zero">0</td><td>Not detected</td></tr>
+          <tr><td>Magnesium</td><td class="zero">0</td><td>Not detected</td></tr>
+        </tbody>
+      </table>
+      <p class="mineral-source">Source: Standard food and beverage analysis. Tested by ALS &#8212; Australian Laboratory Services. Every production run.</p>
+    </div>
+  </div>
+</section>
+
 
 <section class="trade" id="trade">
   <div class="wrap">
