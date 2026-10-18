@@ -629,6 +629,12 @@ section.ppz{padding:0!important;margin:0!important;border:0;min-height:0;max-wid
 .ppz .ppz-last .ppz-txt{margin:0}
 .ppz .ppz-last .ppz-t{font-size:21px}
 .ppz .ppz-last .ppz-r{text-align:left}}
+
+.social-follow-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;padding-top:40px;border-top:1px solid var(--line)}
+.social-follow-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:50px;font:700 1rem/1 Arial,sans-serif;text-decoration:none;transition:.2s ease}
+.social-follow-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.15)}
+.fb-btn{background:#1877F2;color:white}
+.ig-btn{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%);color:white}
 </style>
 <div class="ppz-hero">
 <section class="ppz-intro"><p class="ppz-eyebrow">The Pureau process</p><h2 class="ppz-h">How we make Australia's Purest Water</h2>
@@ -1168,18 +1174,15 @@ else{(function f(now){if(last===null)last=now;var dt=Math.min(0.1,(now-last)/100
     </div>
 
     <!-- Live Facebook feed -->
-    <div class="fb-feed-wrap">
-      <p class="fb-feed-label">Latest from Facebook</p>
-      <div class="fb-feed-inner">
-        <iframe 
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPureauAustralia%2F&tabs=timeline&width=500&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
-          width="500" height="500"
-          style="border:none;overflow:hidden;border-radius:12px;max-width:100%"
-          scrolling="no" frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-        </iframe>
-      </div>
+    <div class="social-follow-cta">
+      <a class="social-follow-btn fb-btn" href="https://www.facebook.com/PureauAustralia/" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        See our posts on Facebook
+      </a>
+      <a class="social-follow-btn ig-btn" href="https://www.instagram.com/pureauaustralia/" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.3" fill="white"/></svg>
+        Follow us on Instagram
+      </a>
     </div>
 
   </div>
