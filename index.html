@@ -531,6 +531,18 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     .raaf-badge-text{font-size:13px;color:var(--navy);font-weight:600;line-height:1.4}
     .raaf-badge-text span{display:block;font-size:11px;font-weight:400;color:var(--muted)}
 
+
+/* ── Socials section ── */
+.social-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:36px 0}
+.social-card{display:flex;flex-direction:column;align-items:center;gap:12px;padding:32px 28px;border:1.5px solid var(--line);border-radius:16px;text-decoration:none;color:var(--text);transition:.2s ease;min-width:160px;flex:1;max-width:210px}
+.social-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 10px 28px rgba(14,124,206,.13)}
+.social-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.social-icon svg{width:32px;height:32px}
+.social-name{font-weight:700;font-size:1rem;letter-spacing:-.01em}
+.social-handle{font-size:.82rem;color:#888}
+.fb-feed-wrap{margin-top:44px;border-top:1px solid var(--line);padding-top:40px;text-align:center}
+.fb-feed-label{font:700 .95rem/1 Arial,sans-serif;color:var(--navy);margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em}
+.fb-feed-inner{display:flex;justify-content:center}
 </style>
 </head>
 <body>
@@ -548,6 +560,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
       <a href="#range">Range</a>
       <a href="#ro-compare">Pureau beats home RO units</a>
       <a href="#faq">FAQs</a>
+      <a href="#socials">Socials</a>
       <a href="#buy">Where to buy</a>
     </nav>
   </div>
@@ -1036,6 +1049,74 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
   </div>
 </section>
 
+<!-- ===== SOCIALS ===== -->
+<section id="socials" style="background:#f8fbff;padding:clamp(50px,7vh,80px) 0">
+  <div class="wrap">
+    <div class="head" style="text-align:center;margin-bottom:8px">
+      <p class="eyebrow">Stay connected</p>
+      <h2 style="color:var(--navy)">Follow Pureau</h2>
+    </div>
+
+    <div class="social-cards">
+
+      <!-- Instagram -->
+      <a class="social-card" href="https://www.instagram.com/pureauaustralia/" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 60%,#285AEB 90%)">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="1.8"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="white"/>
+          </svg>
+        </div>
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@pureauaustralia</span>
+      </a>
+
+      <!-- Facebook -->
+      <a class="social-card" href="https://www.facebook.com/PureauAustralia/" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#1877F2">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047v-2.66c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+          </svg>
+        </div>
+        <span class="social-name">Facebook</span>
+        <span class="social-handle">PureauAustralia</span>
+      </a>
+
+      <!-- LinkedIn -->
+      <a class="social-card" href="https://www.linkedin.com/company/australian-beverage-holdings/" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#0A66C2">
+          <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </div>
+        <span class="social-name">LinkedIn</span>
+        <span class="social-handle">Australian Beverage Holdings</span>
+      </a>
+
+    </div>
+
+    <!-- Live Facebook feed -->
+    <div id="fb-root"></div>
+    <div class="fb-feed-wrap">
+      <p class="fb-feed-label">Latest from Facebook</p>
+      <div class="fb-feed-inner">
+        <div class="fb-page"
+          data-href="https://www.facebook.com/PureauAustralia/"
+          data-tabs="timeline"
+          data-width="500"
+          data-height="480"
+          data-small-header="true"
+          data-adapt-container-width="true"
+          data-hide-cover="false"
+          data-show-facepile="false">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===== TRADE ===== -->
 <section class="rocompare" id="ro-compare">
   <div class="wrap">
@@ -1361,5 +1442,9 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
   });
 })();
 </script>
+
+  <script>
+    (function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://connect.facebook.net/en_AU/sdk.js#xfbml=1&version=v18.0";js.async=true;fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));
+  </script>
 </body>
 </html>
