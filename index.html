@@ -597,6 +597,180 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
   </div>
 </section>
 
+<!-- ===== PROCESS ===== -->
+<section id="process">
+  <div class="wrap">
+    <div class="head rev">
+      <p class="eyebrow">The Pureau process</p>
+      <h2>Three stages. No chemicals.</h2>
+      <p class="lede rev" style="margin-top:16px">Every drop of Pureau passes through three independently verified stages before it leaves our facility. This is what 100% pure water actually takes.</p>
+    </div>
+
+    <div class="panim-grid">
+      <!-- Left: filter column -->
+      <div>
+        <div class="panim-col" id="panim-col">
+          <div class="panim-label" id="panim-top">Tap water in</div>
+          <canvas id="panim-canvas"></canvas>
+          <div class="panim-layer" id="panim-l1">
+            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 1 — Filtration</div>
+          </div>
+          <div class="panim-layer" id="panim-l2">
+            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 2 — Reverse Osmosis</div>
+          </div>
+          <div class="panim-layer" id="panim-l3">
+            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 3 — Biological</div>
+          </div>
+          <div class="panim-label panim-pure" id="panim-bot">
+            <div style="font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.01em;font-family:var(--disp)">Pureau 100% Pure</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-top:3px;font-family:var(--f)">ALS Verified Every Run</div>
+          </div>
+        </div>
+        <div class="panim-key rev">
+          <div class="panim-key-title">What you're seeing</div>
+          <div class="panim-key-groups">
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:var(--navy)">Stage 1 removes:</div>
+              <div class="panim-key-items">
+                <span class="panim-key-dot" style="background:#8E44AD"></span>Chlorine
+                <span class="panim-key-dot" style="background:#E67E22"></span>Nitrates
+                <span class="panim-key-dot" style="background:#8B5E3C"></span>Dirt &amp; sediment
+              </div>
+            </div>
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:var(--blue)">Stage 2 removes:</div>
+              <div class="panim-key-items">
+                <span class="panim-key-dot" style="background:#F1C40F;border:1px solid #ccc"></span>Fluoride
+                <span class="panim-key-dot" style="background:#16A085"></span>PFAS
+                <span class="panim-key-dot" style="background:#E8192C"></span>Sodium
+                <span class="panim-key-dot" style="background:#95A5A6"></span>Dissolved solids
+                <span class="panim-key-dot" style="background:#922B21"></span>Viruses
+              </div>
+            </div>
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:#27AE60">Stage 3 removes:</div>
+              <div class="panim-key-items">
+                <span class="panim-key-dot" style="background:#C0392B"></span>Bacteria
+              </div>
+            </div>
+            <div class="panim-key-group">
+              <div class="panim-key-slabel" style="color:var(--blue)">Passes through:</div>
+              <div class="panim-key-items"><span class="panim-key-drop"></span>100% Pure water</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: stage panel -->
+      <div class="panim-panel">
+        <div class="panim-tabs">
+          <button class="panim-tab pt1 active" onclick="pShowStage(1)">Stage 1</button>
+          <button class="panim-tab pt2" onclick="pShowStage(2)">Stage 2</button>
+          <button class="panim-tab pt3" onclick="pShowStage(3)">Stage 3</button>
+        </div>
+        <div class="panim-card pc1 active" id="panim-sc1">
+          <div class="panim-stage-num">First stage</div>
+          <h3>Filtration</h3>
+          <p class="panim-desc">Carbon and inorganic media remove large contaminants from incoming water. Chlorine, nitrates, iron and sediment are captured here before water enters the RO stage.</p>
+          <div class="panim-removes">
+            <div class="panim-rem-item"><div class="panim-rem-icon">Cl</div><div><div class="panim-rem-label">Chlorine and chloramines</div><div class="panim-rem-desc">Added to tap water as disinfectant.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">Fe</div><div><div class="panim-rem-label">Iron and sediment</div><div class="panim-rem-desc">Dissolved metals and particulate from pipes.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">NO</div><div><div class="panim-rem-label">Nitrates</div><div class="panim-rem-desc">Common in agricultural catchments.</div></div></div>
+          </div>
+          <div class="panim-pills"><div class="panim-pill">Carbon &amp; inorganic media</div></div>
+        </div>
+        <div class="panim-card pc2" id="panim-sc2">
+          <div class="panim-stage-num">Second stage</div>
+          <h3>Reverse osmosis</h3>
+          <p class="panim-desc">Water is forced under high pressure through semi-permeable membranes. Fluoride, sodium, PFAS, heavy metals and viruses are rejected at the RO membrane.</p>
+          <div class="panim-removes">
+            <div class="panim-rem-item"><div class="panim-rem-icon">F</div><div><div class="panim-rem-label">Fluoride</div><div class="panim-rem-desc">State-added fluoride rejected by the membrane.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">Na</div><div><div class="panim-rem-label">Sodium</div><div class="panim-rem-desc">Not detected in the finished product.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">PF</div><div><div class="panim-rem-label">PFAS</div><div class="panim-rem-desc">"Forever chemicals" detected in some Australian catchments.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">VS</div><div><div class="panim-rem-label">Viruses</div><div class="panim-rem-desc">RO membrane pores (~0.0001 microns) are far smaller than any virus.</div></div></div>
+          </div>
+          <div class="panim-pills"><div class="panim-pill">High-pressure membrane</div></div>
+        </div>
+        <div class="panim-card pc3" id="panim-sc3">
+          <div class="panim-stage-num">Third stage</div>
+          <h3>Biological filtration</h3>
+          <p class="panim-desc">0.2 micron absolute filtration — the accepted sterilising grade for bacterial removal in food and beverage production. Every production run independently verified by ALS.</p>
+          <div class="panim-removes">
+            <div class="panim-rem-item"><div class="panim-rem-icon">BK</div><div><div class="panim-rem-label">Bacteria</div><div class="panim-rem-desc">0.2 micron absolute filtration is the accepted sterilising grade for bacterial removal in food and beverage production.</div></div></div>
+            <div class="panim-rem-item"><div class="panim-rem-icon">ALS</div><div><div class="panim-rem-label">ALS — every run</div><div class="panim-rem-desc">Australian Laboratory Services every production run.</div></div></div>
+          </div>
+          <div class="panim-pills"><div class="panim-pill">0.2 micron rated</div><div class="panim-pill">ALS certified</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Three stages summary -->
+<section style="background:var(--white);padding:clamp(40px,6vh,60px) 0">
+  <div class="wrap">
+    <div class="stages">
+      <div class="stage rev" style="border-left-color:var(--navy)">
+        <div class="n">First stage</div>
+        <h3>Filtration</h3>
+        <p>Carbon and inorganic media remove chlorine, nitrates, iron and sediment. This conditions the water before the high-pressure membrane step.</p>
+      </div>
+      <div class="stage rev" style="border-left-color:var(--blue)">
+        <div class="n">Second stage</div>
+        <h3>Reverse osmosis</h3>
+        <p>Water is forced through semi-permeable membranes at high pressure. Fluoride, sodium, PFAS and dissolved solids are rejected at the membrane.</p>
+      </div>
+      <div class="stage rev" style="border-left-color:#27AE60">
+        <div class="n">Third stage</div>
+        <h3>Biological filters</h3>
+        <p>0.2-micron absolute filters remove any remaining bacteria and microbes. Samples go to ALS for independent verification every single production run.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What is removed -->
+<section class="proc-removes">
+  <div class="wrap">
+    <h2>What the Pureau process removes</h2>
+    <p class="proc-removes-sub">These are the substances found in Australian tap water and many bottled waters that do not exist in Pureau.</p>
+    <div class="proc-rem-grid">
+      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Chlorine</div><div class="proc-rem-note">Added to tap water as a disinfectant. Carbon filtration removes it completely.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Nitrates</div><div class="proc-rem-note">Common in agricultural catchments. Removed by specialised inorganic media.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Iron and sediment</div><div class="proc-rem-note">Dissolved metals and particulate matter from infrastructure and source water.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Fluoride</div><div class="proc-rem-note">State-mandated addition to tap water. Rejected by the reverse osmosis membrane.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Sodium</div><div class="proc-rem-note">Dissolved sodium salts present in most Australian tap and spring waters.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">PFAS</div><div class="proc-rem-note">Per- and polyfluoroalkyl "forever chemicals" detected in some Australian catchments.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Heavy metals</div><div class="proc-rem-note">Lead, arsenic, mercury and other dissolved metals blocked by the RO membrane.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Viruses</div><div class="proc-rem-note">RO membrane pores (~0.0001 microns) are far smaller than any virus, rejecting them at Stage 2.</div></div>
+      <div class="proc-rem-card rev"><div class="proc-badge pb3">Stage 3</div><div class="proc-rem-name">Bacteria</div><div class="proc-rem-note">0.2 micron absolute filtration is the accepted sterilising grade for bacterial removal in food and beverage production.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Proof band -->
+<section class="proc-proof">
+  <div class="wrap">
+    <div class="proc-proof-inner">
+      <div class="rev">
+        <h2>Independently verified. Every run.</h2>
+        <p>Pureau sends samples to Australian Laboratory Services (ALS) across every production run at our Erskine Park facility. Results are reviewed and signed off before any product leaves the site.</p>
+        <p>Home filtration systems have no equivalent verification. They produce water of variable quality depending on when filters were last replaced, the condition of the storage bladder, and the source water temperature.</p>
+        <div class="raaf-badge">
+          <span class="raaf-badge-icon">&#9992;</span>
+          <div class="raaf-badge-text">Only supplier of survival drinking water to the RAAF<span>Royal Australian Air Force — Aircraft Life Support Equipment Division</span></div>
+        </div>
+      </div>
+      <div style="text-align:center" class="rev">
+        <div class="proc-big-stat">Every</div>
+        <div class="proc-big-stat">run.</div>
+        <div class="proc-stat-note">Not batch tested. Not sampled. Every single production run.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== SUSTAINABILITY ===== -->
 <section class="sustain" id="sustain">
   <div class="wrap">
@@ -771,180 +945,6 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
         <div class="sub">In-store and online delivery</div>
         <div class="go">Shop Pureau at Dan Murphy's →</div>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROCESS ===== -->
-<section id="process">
-  <div class="wrap">
-    <div class="head rev">
-      <p class="eyebrow">The Pureau process</p>
-      <h2>Three stages. No chemicals.</h2>
-      <p class="lede rev" style="margin-top:16px">Every drop of Pureau passes through three independently verified stages before it leaves our facility. This is what 100% pure water actually takes.</p>
-    </div>
-
-    <div class="panim-grid">
-      <!-- Left: filter column -->
-      <div>
-        <div class="panim-col" id="panim-col">
-          <div class="panim-label" id="panim-top">Tap water in</div>
-          <canvas id="panim-canvas"></canvas>
-          <div class="panim-layer" id="panim-l1">
-            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 1 — Filtration</div>
-          </div>
-          <div class="panim-layer" id="panim-l2">
-            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 2 — Reverse Osmosis</div>
-          </div>
-          <div class="panim-layer" id="panim-l3">
-            <div class="panim-layer-inner"><div class="panim-dot"></div>Stage 3 — Biological</div>
-          </div>
-          <div class="panim-label panim-pure" id="panim-bot">
-            <div style="font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.01em;font-family:var(--disp)">Pureau 100% Pure</div>
-            <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-top:3px;font-family:var(--f)">ALS Verified Every Run</div>
-          </div>
-        </div>
-        <div class="panim-key rev">
-          <div class="panim-key-title">What you're seeing</div>
-          <div class="panim-key-groups">
-            <div class="panim-key-group">
-              <div class="panim-key-slabel" style="color:var(--navy)">Stage 1 removes:</div>
-              <div class="panim-key-items">
-                <span class="panim-key-dot" style="background:#8E44AD"></span>Chlorine
-                <span class="panim-key-dot" style="background:#E67E22"></span>Nitrates
-                <span class="panim-key-dot" style="background:#8B5E3C"></span>Dirt &amp; sediment
-              </div>
-            </div>
-            <div class="panim-key-group">
-              <div class="panim-key-slabel" style="color:var(--blue)">Stage 2 removes:</div>
-              <div class="panim-key-items">
-                <span class="panim-key-dot" style="background:#F1C40F;border:1px solid #ccc"></span>Fluoride
-                <span class="panim-key-dot" style="background:#16A085"></span>PFAS
-                <span class="panim-key-dot" style="background:#E8192C"></span>Sodium
-                <span class="panim-key-dot" style="background:#95A5A6"></span>Dissolved solids
-                <span class="panim-key-dot" style="background:#922B21"></span>Viruses
-              </div>
-            </div>
-            <div class="panim-key-group">
-              <div class="panim-key-slabel" style="color:#27AE60">Stage 3 removes:</div>
-              <div class="panim-key-items">
-                <span class="panim-key-dot" style="background:#C0392B"></span>Bacteria
-              </div>
-            </div>
-            <div class="panim-key-group">
-              <div class="panim-key-slabel" style="color:var(--blue)">Passes through:</div>
-              <div class="panim-key-items"><span class="panim-key-drop"></span>100% Pure water</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: stage panel -->
-      <div class="panim-panel">
-        <div class="panim-tabs">
-          <button class="panim-tab pt1 active" onclick="pShowStage(1)">Stage 1</button>
-          <button class="panim-tab pt2" onclick="pShowStage(2)">Stage 2</button>
-          <button class="panim-tab pt3" onclick="pShowStage(3)">Stage 3</button>
-        </div>
-        <div class="panim-card pc1 active" id="panim-sc1">
-          <div class="panim-stage-num">First stage</div>
-          <h3>Filtration</h3>
-          <p class="panim-desc">Carbon and inorganic media remove large contaminants from incoming water. Chlorine, nitrates, iron and sediment are captured here before water enters the RO stage.</p>
-          <div class="panim-removes">
-            <div class="panim-rem-item"><div class="panim-rem-icon">Cl</div><div><div class="panim-rem-label">Chlorine and chloramines</div><div class="panim-rem-desc">Added to tap water as disinfectant.</div></div></div>
-            <div class="panim-rem-item"><div class="panim-rem-icon">Fe</div><div><div class="panim-rem-label">Iron and sediment</div><div class="panim-rem-desc">Dissolved metals and particulate from pipes.</div></div></div>
-            <div class="panim-rem-item"><div class="panim-rem-icon">NO</div><div><div class="panim-rem-label">Nitrates</div><div class="panim-rem-desc">Common in agricultural catchments.</div></div></div>
-          </div>
-          <div class="panim-pills"><div class="panim-pill">Carbon &amp; inorganic media</div></div>
-        </div>
-        <div class="panim-card pc2" id="panim-sc2">
-          <div class="panim-stage-num">Second stage</div>
-          <h3>Reverse osmosis</h3>
-          <p class="panim-desc">Water is forced under high pressure through semi-permeable membranes. Fluoride, sodium, PFAS, heavy metals and viruses are rejected at the RO membrane.</p>
-          <div class="panim-removes">
-            <div class="panim-rem-item"><div class="panim-rem-icon">F</div><div><div class="panim-rem-label">Fluoride</div><div class="panim-rem-desc">State-added fluoride rejected by the membrane.</div></div></div>
-            <div class="panim-rem-item"><div class="panim-rem-icon">Na</div><div><div class="panim-rem-label">Sodium</div><div class="panim-rem-desc">Not detected in the finished product.</div></div></div>
-            <div class="panim-rem-item"><div class="panim-rem-icon">PF</div><div><div class="panim-rem-label">PFAS</div><div class="panim-rem-desc">"Forever chemicals" detected in some Australian catchments.</div></div></div>
-            <div class="panim-rem-item"><div class="panim-rem-icon">VS</div><div><div class="panim-rem-label">Viruses</div><div class="panim-rem-desc">RO membrane pores (~0.0001 microns) are far smaller than any virus.</div></div></div>
-          </div>
-          <div class="panim-pills"><div class="panim-pill">High-pressure membrane</div></div>
-        </div>
-        <div class="panim-card pc3" id="panim-sc3">
-          <div class="panim-stage-num">Third stage</div>
-          <h3>Biological filtration</h3>
-          <p class="panim-desc">0.2 micron absolute filtration — the accepted sterilising grade for bacterial removal in food and beverage production. Every production run independently verified by ALS.</p>
-          <div class="panim-removes">
-            <div class="panim-rem-item"><div class="panim-rem-icon">BK</div><div><div class="panim-rem-label">Bacteria</div><div class="panim-rem-desc">0.2 micron absolute filtration is the accepted sterilising grade for bacterial removal in food and beverage production.</div></div></div>
-            <div class="panim-rem-item"><div class="panim-rem-icon">ALS</div><div><div class="panim-rem-label">ALS — every run</div><div class="panim-rem-desc">Australian Laboratory Services every production run.</div></div></div>
-          </div>
-          <div class="panim-pills"><div class="panim-pill">0.2 micron rated</div><div class="panim-pill">ALS certified</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Three stages summary -->
-<section style="background:var(--white);padding:clamp(40px,6vh,60px) 0">
-  <div class="wrap">
-    <div class="stages">
-      <div class="stage rev" style="border-left-color:var(--navy)">
-        <div class="n">First stage</div>
-        <h3>Filtration</h3>
-        <p>Carbon and inorganic media remove chlorine, nitrates, iron and sediment. This conditions the water before the high-pressure membrane step.</p>
-      </div>
-      <div class="stage rev" style="border-left-color:var(--blue)">
-        <div class="n">Second stage</div>
-        <h3>Reverse osmosis</h3>
-        <p>Water is forced through semi-permeable membranes at high pressure. Fluoride, sodium, PFAS and dissolved solids are rejected at the membrane.</p>
-      </div>
-      <div class="stage rev" style="border-left-color:#27AE60">
-        <div class="n">Third stage</div>
-        <h3>Biological filters</h3>
-        <p>0.2-micron absolute filters remove any remaining bacteria and microbes. Samples go to ALS for independent verification every single production run.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- What is removed -->
-<section class="proc-removes">
-  <div class="wrap">
-    <h2>What the Pureau process removes</h2>
-    <p class="proc-removes-sub">These are the substances found in Australian tap water and many bottled waters that do not exist in Pureau.</p>
-    <div class="proc-rem-grid">
-      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Chlorine</div><div class="proc-rem-note">Added to tap water as a disinfectant. Carbon filtration removes it completely.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Nitrates</div><div class="proc-rem-note">Common in agricultural catchments. Removed by specialised inorganic media.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb1">Stage 1</div><div class="proc-rem-name">Iron and sediment</div><div class="proc-rem-note">Dissolved metals and particulate matter from infrastructure and source water.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Fluoride</div><div class="proc-rem-note">State-mandated addition to tap water. Rejected by the reverse osmosis membrane.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Sodium</div><div class="proc-rem-note">Dissolved sodium salts present in most Australian tap and spring waters.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">PFAS</div><div class="proc-rem-note">Per- and polyfluoroalkyl "forever chemicals" detected in some Australian catchments.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Heavy metals</div><div class="proc-rem-note">Lead, arsenic, mercury and other dissolved metals blocked by the RO membrane.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb2">Stage 2</div><div class="proc-rem-name">Viruses</div><div class="proc-rem-note">RO membrane pores (~0.0001 microns) are far smaller than any virus, rejecting them at Stage 2.</div></div>
-      <div class="proc-rem-card rev"><div class="proc-badge pb3">Stage 3</div><div class="proc-rem-name">Bacteria</div><div class="proc-rem-note">0.2 micron absolute filtration is the accepted sterilising grade for bacterial removal in food and beverage production.</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- Proof band -->
-<section class="proc-proof">
-  <div class="wrap">
-    <div class="proc-proof-inner">
-      <div class="rev">
-        <h2>Independently verified. Every run.</h2>
-        <p>Pureau sends samples to Australian Laboratory Services (ALS) across every production run at our Erskine Park facility. Results are reviewed and signed off before any product leaves the site.</p>
-        <p>Home filtration systems have no equivalent verification. They produce water of variable quality depending on when filters were last replaced, the condition of the storage bladder, and the source water temperature.</p>
-        <div class="raaf-badge">
-          <span class="raaf-badge-icon">&#9992;</span>
-          <div class="raaf-badge-text">Only supplier of survival drinking water to the RAAF<span>Royal Australian Air Force — Aircraft Life Support Equipment Division</span></div>
-        </div>
-      </div>
-      <div style="text-align:center" class="rev">
-        <div class="proc-big-stat">Every</div>
-        <div class="proc-big-stat">run.</div>
-        <div class="proc-stat-note">Not batch tested. Not sampled. Every single production run.</div>
-      </div>
     </div>
   </div>
 </section>
