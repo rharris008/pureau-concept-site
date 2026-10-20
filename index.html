@@ -176,6 +176,13 @@ header.nav .inner{display:flex; align-items:center; justify-content:space-betwee
 .navlinks a.cta:hover{background:var(--blue-d); color:#fff}
 @media(max-width:900px){.navlinks a:not(.cta){display:none}}
 
+/* compact drawer menu */
+.navlinks{right:auto!important;width:320px;max-height:calc(100vh - 90px);overflow-y:auto;background:#fff!important;backdrop-filter:none!important;border-bottom:none!important;box-shadow:0 10px 30px rgba(6,40,60,.18);border-radius:0 0 14px 0;padding:8px 24px 14px!important}
+@media(max-width:900px){.navlinks a:not(.cta){display:block}}
+@media(max-width:480px){.navlinks{width:100%;border-radius:0 0 14px 14px}}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(10,25,35,.45);z-index:55}
+.nav-overlay.open{display:block}
+
 /* ---------- Hero ---------- */
 .hero{position:relative; min-height:88svh; display:flex; align-items:center; overflow:hidden}
 .hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 50%}
@@ -513,6 +520,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     </nav>
   </div>
 </header>
+<div class="nav-overlay" id="navov"></div>
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top" style="padding:0">
@@ -1349,17 +1357,17 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
 (function(){
   var ham = document.getElementById('ham');
   var nav = document.getElementById('navlinks');
+  var ov = document.getElementById('navov');
+  function close(){ nav.classList.remove('open'); ham.classList.remove('open'); ham.setAttribute('aria-expanded','false'); ov.classList.remove('open'); }
   ham.addEventListener('click', function(){
     var open = nav.classList.toggle('open');
     ham.classList.toggle('open', open);
     ham.setAttribute('aria-expanded', open);
+    ov.classList.toggle('open', open);
   });
+  ov.addEventListener('click', close);
   nav.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      nav.classList.remove('open');
-      ham.classList.remove('open');
-      ham.setAttribute('aria-expanded', 'false');
-    });
+    a.addEventListener('click', close);
   });
 })();
 </script>
