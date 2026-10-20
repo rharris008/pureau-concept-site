@@ -441,7 +441,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
     .proc-rem-card .proc-rem-note{font-size:13px;color:#D6EFFA;line-height:1.6}
     /* Proof band */
     .proc-proof{background:var(--tint);padding:clamp(40px,6vh,60px) 0}
-    .proc-proof-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .proc-proof-inner{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
     @media(max-width:680px){.proc-proof-inner{grid-template-columns:1fr}}
     .proc-proof h2{margin-bottom:16px}
     .proc-proof p{font-size:16px;margin-bottom:16px;max-width:52ch;color:var(--body)}
@@ -816,11 +816,6 @@ else{(function f(now){if(last===null)last=now;var dt=Math.min(0.1,(now-last)/100
           <span class="raaf-badge-icon">&#9992;</span>
           <div class="raaf-badge-text">Only supplier of survival drinking water to the RAAF<span>Royal Australian Air Force — Aircraft Life Support Equipment Division</span></div>
         </div>
-      </div>
-      <div style="text-align:center" class="rev">
-        <div class="proc-big-stat">Every</div>
-        <div class="proc-big-stat">run.</div>
-        <div class="proc-stat-note">Not batch tested. Not sampled. Every single production run.</div>
       </div>
     </div>
   </div>
