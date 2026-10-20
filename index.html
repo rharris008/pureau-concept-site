@@ -103,6 +103,11 @@
           "@type": "Question",
           "name": "Does Pureau contain chlorine?",
           "acceptedAnswer": {"@type": "Answer", "text": "No. Stage 1 carbon filtration removes all chlorine before water reaches the RO membrane."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is a home reverse osmosis system the same as Pureau?",
+          "acceptedAnswer": {"@type": "Answer", "text": "No. Five specific differences: (1) Pressure — Pureau's industrial RO membrane operates at pressures a home unit cannot reach, meaning higher contaminant rejection rates. (2) Pre-treatment — Pureau uses carbon and sand filtration banks before the membrane; home units skip or minimise this, so the membrane underperforms from day one. (3) Post-membrane biological filtration — Pureau adds a 0.2-micron biological filtration stage after the RO membrane that removes bacteria and microorganisms; home systems omit this entirely. (4) Storage contamination — home RO systems store water in rubber pressurised bladder tanks that leach volatile organic compounds and harbour bacterial biofilm, recontaminating the water the membrane just purified. (5) Independent verification — ALS tests every Pureau production run before product leaves the facility; a home RO system has no ongoing independent verification and no certificate of analysis. A home RO system produces filtered water. Pureau produces verified pure water. They are not the same product."}
         }
       ]
     }
@@ -316,6 +321,35 @@ section{padding:clamp(64px,10vh,120px) 0}
 .stage h3{font-size:19px; margin-bottom:10px}
 .stage p{font-size:15px; margin:0}
 
+/* ---------- RO Compare ---------- */
+.rocompare{background:var(--white)}
+.roweakgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,24px); margin:clamp(28px,4vh,44px) 0}
+@media(max-width:900px){.roweakgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.roweakgrid{grid-template-columns:1fr}}
+.roweak{background:var(--tint); border-radius:4px; padding:26px; border-left:4px solid #E8792A}
+.roweak-icon{font-size:18px; color:#E8792A; margin-bottom:12px}
+.roweak h3{font-size:17px; margin-bottom:10px}
+.roweak p{font-size:15px; margin:0; color:var(--body)}
+.rodata{background:var(--tint); border-radius:4px; padding:clamp(24px,3vw,40px); margin-top:8px}
+.rodata-hdr h3{font-size:clamp(20px,2.5vw,26px); margin-bottom:10px}
+.rodata-hdr p{font-size:15px; color:var(--body)}
+.rotable{width:100%; border-collapse:collapse; font-size:14px; margin:0}
+.rotable th{background:var(--navy); color:#fff; padding:12px 14px; text-align:left; font-size:12px; letter-spacing:.08em; text-transform:uppercase; font-weight:600}
+.rotable td{padding:11px 14px; border-bottom:1px solid #dde4ec; vertical-align:top}
+.rotable tr:last-child td{border-bottom:none}
+.rotable tr:nth-child(even) td{background:rgba(0,0,0,.025)}
+.rotable td:first-child{font-weight:500; color:var(--navy)}
+.good{color:#1a7a3a; font-weight:600}
+.mid{color:#b06000; font-weight:600}
+.bad{color:#c0392b; font-weight:600}
+.rodata-note{font-size:12px; color:#888; margin-top:20px; line-height:1.6; border-top:1px solid #dde4ec; padding-top:16px}
+.rodata-note a{color:var(--blue); text-decoration:none}
+.rodata-note a:hover{text-decoration:underline}
+.rodata-note strong{color:var(--navy); font-size:13px}
+.rodiff{background:var(--blue); color:#fff; border-radius:4px; padding:clamp(28px,3vw,44px); margin-top:8px}
+.rodiff-claim{font-family:var(--disp); font-size:clamp(22px,3vw,32px); font-weight:700; color:#fff; margin-bottom:16px; line-height:1.2}
+.rodiff p{font-size:16px; color:#D6EFFA; margin:0 0 16px; line-height:1.7}
+
 /* ---------- Trade ---------- */
 .trade{background:var(--white)}
 .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,2vw,24px); margin-bottom:clamp(26px,4vh,42px)}
@@ -518,6 +552,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
       <a href="#everyday">Can't live without it</a>
       <a href="#matters">Why Pureau</a>
       <a href="#range">Range</a>
+      <a href="#ro-compare">Pureau beats home RO units</a>
       <a href="#faq">FAQs</a>
       <a href="#socials">Socials</a>
       <a href="#buy">Where to buy</a>
@@ -1080,6 +1115,90 @@ else{(function f(now){if(last===null)last=now;var dt=Math.min(0.1,(now-last)/100
 </section>
 
 <!-- ===== SOCIALS ===== -->
+<section class="rocompare" id="ro-compare">
+  <div class="wrap">
+    <div class="hdr rev">
+      <p class="eyebrow">Not all Reverse Osmosis systems are the same</p>
+      <h2>A home filter and a Pureau plant are different things.</h2>
+      <p class="lede">Reverse osmosis is just one step in our process. A Reverse Osmosis system alone does not guarantee 100% purity. That's why we independently verify the quality of every production run. The result depends entirely on what surrounds the membrane — and most home systems leave out the parts that matter most.</p>
+    </div>
+    <div class="roweakgrid">
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>The storage tank problem</h3>
+        <p>Most under-bench and benchtop home Reverse Osmosis units store purified water in a pressurised rubber bladder tank. Still water sitting in a rubber vessel in a warm cabinet is a known environment for bacterial regrowth. By the time it reaches your glass, the purification has been partially reversed.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>Filter fatigue goes undetected</h3>
+        <p>Home systems depend on the owner replacing pre-filters every 6 to 12 months. An exhausted carbon pre-filter allows chlorine and organic compounds through to the RO membrane, degrading it from the front. Contaminant rejection rates fall quietly, with no alarm and no visible sign.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>No biological filtration stage</h3>
+        <p>A Reverse Osmosis membrane rejects dissolved solids — it does not filter bacteria. Pureau adds a third stage of biological filtration to 0.2 microns absolute after the membrane. Most home systems stop at the membrane. That gap is where bacteria live.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>Stage count is not purity</h3>
+        <p>Some home systems are marketed as 7-stage or 9-stage. In most cases the additional stages are mineral-addition cartridges, alkaline stones or UV lamps — each addressing taste or marketing, not purification. More stages does not mean cleaner water.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>Cold water cuts performance</h3>
+        <p>Reverse Osmosis membrane efficiency drops significantly in cold water — a common condition in Australian winters, particularly in southern states. Rejection rates can fall by 15 to 25 per cent in cold supply water with no indication to the user that the system is underperforming.</p>
+      </div>
+      <div class="roweak rev">
+        <div class="roweak-icon">&#9651;</div>
+        <h3>No independent verification</h3>
+        <p>Pureau sends samples to Australian Laboratory Services (ALS) across every production run. A home Reverse Osmosis system has no ongoing third-party testing. What the membrane claims to remove, and what it actually removes on any given day, are two different things without verified data to confirm it.</p>
+      </div>
+    </div>
+    <div class="rodata rev">
+      <div class="rodata-hdr">
+        <p class="eyebrow" style="color:var(--teal)">The real numbers</p>
+        <h3>What a home Reverse Osmosis actually produces.</h3>
+        <p>NSF/ANSI 58 — the standard most home Reverse Osmosis units are certified to — only requires a unit to demonstrate 75% TDS rejection at test conditions. Real-world performance, with aged membranes and suburban water pressure, falls further. These are established industry and independent research findings.</p>
+      </div>
+      <div style="overflow-x:auto; margin-top:28px">
+        <table class="rotable">
+          <thead>
+            <tr>
+              <th>Contaminant</th>
+              <th>Pureau industrial</th>
+              <th>Home Reverse Osmosis — new, well-maintained</th>
+              <th>Home Reverse Osmosis — typical real-world</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>TDS (dissolved solids)</td><td class="good">Not detected (ALS)</td><td class="mid">88–94%</td><td class="bad">60–80%</td></tr>
+            <tr><td>Nitrates</td><td class="good">Not detected (ALS)</td><td class="mid">75%</td><td class="bad">As low as 50% (NSF minimum)</td></tr>
+            <tr><td>Arsenic</td><td class="good">Not detected (ALS)</td><td class="mid">85–90%</td><td class="bad">70–80%</td></tr>
+            <tr><td>Fluoride</td><td class="good">Not detected (ALS)</td><td class="mid">85–92%</td><td class="bad">65–80%</td></tr>
+            <tr><td>Bacteria (post-tank)</td><td class="good">Removed to 0.2&micro;m</td><td class="bad">Bacterial regrowth risk</td><td class="bad">Bacterial regrowth risk</td></tr>
+            <tr><td>Independent verification</td><td class="good">Every run — ALS</td><td class="bad">None</td><td class="bad">None</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="rodata-note">
+        <p style="margin-bottom:8px"><strong>References</strong></p>
+        <ul style="margin:0; padding-left:18px; line-height:2">
+          <li>NSF International — NSF/ANSI Standard 58: Reverse Osmosis Drinking Water Treatment Systems. <a href="https://www.nsf.org/consumer-resources/articles/drinking-water/reverse-osmosis-systems" target="_blank" rel="noopener">nsf.org</a></li>
+          <li>Water Quality Association — Reverse Osmosis Performance and Contaminant Reduction Data. <a href="https://www.wqa.org/learn-about-water/common-contaminants" target="_blank" rel="noopener">wqa.org</a></li>
+          <li>Pureau — Water quality testing via Australian Laboratory Services (ALS), every production run.</li>
+        </ul>
+        <p style="margin-top:10px">Home Reverse Osmosis real-world figures reflect typical consumer-grade systems after 12–24 months of use at suburban mains pressure (50–80 PSI). Pureau figures reflect ALS-verified production results.</p>
+      </div>
+    </div>
+
+    <div class="rodiff rev">
+      <p class="rodiff-claim">A home Reverse Osmosis cannot produce Pureau.</p>
+      <p>The pressure is not high enough. The pre-treatment beds are not there. The biological filtration stage after the membrane does not exist. The storage tank introduces contamination the membrane just removed. And there is no independent laboratory test to tell you any of this is happening.</p>
+      <p>Pureau operates at industrial membrane pressures home systems cannot physically reach, through carbon and sand pre-treatment banks, through a three-stage process that ends with biological filtration to 0.2 microns absolute — then sealed, not stored in rubber. Every production run is tested independently. Not occasionally. Every run.</p>
+    </div>
+  </div>
+</section>
+
 <section class="pfaq" id="faq">
   <div class="wrap">
     <div class="hdr rev">
