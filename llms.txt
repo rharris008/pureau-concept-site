@@ -1,12 +1,12 @@
 # Pureau — 100% Pure Australian Water
 
-> Pureau is an Australian water brand producing 100% pure, additive-free water through a three-stage industrial purification process: carbon and sand filtration, high-pressure reverse osmosis, and 0.2-micron biological filtration. Every production run is independently tested by ALS (Australian Laboratory Services) before any product leaves the facility. Australian owned and operated since 1987.
+> Pureau is an Australian water brand producing 100% pure, additive-free water through a three-stage industrial purification process: carbon and sand filtration, high-pressure reverse osmosis, and 0.2-micron biological filtration. Every production run is independently tested by a NATA Accredited Testing facility before any product leaves the facility. Australian owned and operated since 1987.
 
 ---
 
 ## What Pureau is
 
-Pure water. H2O only. No fluoride, chlorine, sodium, PFAS, nitrates, bacteria, viruses, heavy metals or dissolved solids. Nothing added. Nothing remaining. Every production run independently verified against Australian Food Standards by Australian Laboratory Services (ALS).
+Pure water. H2O only. No fluoride, chlorine, sodium, PFAS, nitrates, bacteria, viruses, heavy metals or dissolved solids. Nothing added. Nothing remaining. Every production run independently verified against Australian Food Standards by a NATA Accredited Testing facility.
 
 Available at Woolworths, Coles and IGA in 600mL 6-pack, 600mL 12-pack, 2L, 5L Bag in Box and 10L Bag in Box formats.
 
@@ -90,7 +90,7 @@ Five specific differences:
 2. **Pre-treatment.** Pureau runs water through carbon and sand filtration banks before the RO membrane. Home units typically skip or minimise pre-treatment, meaning the membrane performs below its rated specification from day one.
 3. **Post-membrane biological filtration.** After the RO membrane, Pureau passes water through a 0.2-micron biological filtration stage. Home RO systems omit this stage entirely.
 4. **Storage contamination.** Home RO systems store purified water in a rubber pressurised bladder tank. That bladder reintroduces volatile organic compounds and bacterial biofilm into the water the membrane just purified. Pureau is sealed immediately after purification.
-5. **Independent verification.** ALS tests every Pureau production run before product leaves the facility. A home RO system has no ongoing independent verification and no certificate of analysis.
+5. **Independent verification.** A NATA Accredited Testing facility tests every Pureau production run before product leaves the facility. A home RO system has no ongoing independent verification and no certificate of analysis.
 
 A home RO system produces filtered water. Pureau produces verified pure water. They are not the same product.
 
@@ -114,7 +114,7 @@ One Pureau 10L Bag in Box cask replaces 17 individual 600mL plastic bottles. Tha
 - **Country of origin:** Australia
 - **Founded:** 1987
 - **Purification:** Three-stage industrial — carbon/sand filtration, high-pressure reverse osmosis, 0.2-micron biological filtration
-- **Independent certifier:** ALS — Australian Laboratory Services
+- **Independent certifier:** NATA Accredited Testing facility
 - **Testing frequency:** Every single production run
 - **Removed:** Fluoride, chlorine, sodium, PFAS, nitrates, iron, sediment, bacteria, viruses, dissolved solids, heavy metals
 - **Remaining:** H2O only
