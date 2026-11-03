@@ -551,6 +551,16 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
 .fb-feed-label{font:700 .95rem/1 Arial,sans-serif;color:var(--navy);margin-bottom:20px;text-transform:uppercase;letter-spacing:.06em}
 .fb-feed-inner{display:flex;justify-content:center}
 .nav .shopbtn{margin-left:auto;background:#00a3e0;color:#fff;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.03em;padding:8px 18px;border-radius:999px;white-space:nowrap}.nav .shopbtn:hover{background:#0088bd}
+@media(max-width:760px){
+.mfold{cursor:pointer}
+.mfold .mf-t{position:relative;padding-right:28px;margin-bottom:0}
+.mfold .mf-t:after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:22px;font-weight:400;line-height:1;opacity:.8}
+.mfold.open .mf-t:after{content:"\2212"}
+.mfold .mf-b{display:none;margin-top:8px}
+.mfold.open .mf-b{display:block}
+.proc-rem-grid{gap:10px!important}.proc-rem-card{padding:14px 18px!important}
+.uses li{padding-top:12px!important;padding-bottom:12px!important}
+}
 </style>
 </head>
 <body>
@@ -1543,5 +1553,8 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
   });
 })();
 </script>
+<script>(function(){var P=[['.proc-rem-card','.proc-rem-name','.proc-rem-note'],['.uses li','h3','p']];
+P.forEach(function(p){document.querySelectorAll(p[0]).forEach(function(c){var t=c.querySelector(p[1]),b=c.querySelector(p[2]);if(!t||!b)return;
+c.classList.add('mfold');t.classList.add('mf-t');b.classList.add('mf-b');c.addEventListener('click',function(){if(innerWidth<=760)c.classList.toggle('open')})})})})();</script>
 </body>
 </html>
