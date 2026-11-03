@@ -560,6 +560,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
 .mfold.open .mf-b{display:block}
 .proc-rem-grid{gap:10px!important}.proc-rem-card{padding:14px 18px!important}
 .uses li{padding-top:12px!important;padding-bottom:12px!important}
+.stage,.faq-card,.claim{padding-top:14px!important;padding-bottom:14px!important}.stages,.faq-grid,.claims{gap:10px!important}
 }
 </style>
 </head>
@@ -1553,7 +1554,7 @@ rt.addEventListener('click',()=>{const on=document.body.classList.toggle('review
   });
 })();
 </script>
-<script>(function(){var P=[['.proc-rem-card','.proc-rem-name','.proc-rem-note'],['.uses li','h3','p']];
+<script>(function(){var P=[['.proc-rem-card','.proc-rem-name','.proc-rem-note'],['.uses li','h3','p'],['.stage','h3','p'],['.claim','h3','p'],['.faq-card','h3','p'],['.card .bd','h3','p']];
 P.forEach(function(p){document.querySelectorAll(p[0]).forEach(function(c){var t=c.querySelector(p[1]),b=c.querySelector(p[2]);if(!t||!b)return;
 c.classList.add('mfold');t.classList.add('mf-t');b.classList.add('mf-b');c.addEventListener('click',function(){if(innerWidth<=760)c.classList.toggle('open')})})})})();</script>
 </body>
