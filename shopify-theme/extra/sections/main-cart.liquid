@@ -1,0 +1,43 @@
+<div class="ps-head"><div class="ps"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Your cart</h1></div></div>
+<div class="ps">
+  {%- if cart.item_count > 0 -%}
+    {%- form 'cart', cart, id: 'cart-form' -%}
+      <table class="ct">
+        <thead><tr><th colspan="2">Product</th><th>Price</th><th>Quantity</th><th style="text-align:right">Total</th></tr></thead>
+        <tbody>
+          {%- for item in cart.items -%}
+            <tr>
+              <td class="im">{%- if item.image -%}<a href="{{ item.url }}">{{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.product.title }}</a>{%- endif -%}</td>
+              <td class="nm">
+                <a href="{{ item.url }}">{{ item.product.title | escape }}</a>
+                {%- unless item.product.has_only_default_variant -%}<small>{{ item.variant.title | escape }}</small>{%- endunless -%}
+                {%- for d in item.line_level_discount_allocations -%}<small>{{ d.discount_application.title | escape }} (&minus;{{ d.amount | money }})</small>{%- endfor -%}
+                <br><a class="rm" href="{{ item.url_to_remove }}">Remove</a>
+              </td>
+              <td>{{ item.final_price | money }}</td>
+              <td><label class="visually-hidden" for="qty-{{ forloop.index }}" style="position:absolute;left:-9999px">Quantity</label><input type="number" id="qty-{{ forloop.index }}" name="updates[]" value="{{ item.quantity }}" min="0" onchange="this.form.querySelector('[name=update]').click()"></td>
+              <td class="tot">{{ item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+      <div class="ct-foot">
+        <div class="ct-note">
+          <label for="cart-note" style="display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px">Order note</label>
+          <textarea id="cart-note" name="note">{{ cart.note }}</textarea>
+          <p><button type="submit" name="update" class="btn s" style="background:none;cursor:pointer;font-family:inherit">Update cart</button></p>
+        </div>
+        <div class="ct-sum">
+          {%- for d in cart.cart_level_discount_applications -%}<p>{{ d.title | escape }}: &minus;{{ d.total_allocated_amount | money }}</p>{%- endfor -%}
+          <div class="row"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></div>
+          <p>GST included. Shipping and discount codes calculated at checkout.</p>
+          <button type="submit" name="checkout" class="btn p full">Check out</button>
+          <p style="text-align:center;margin-top:12px"><a class="lnk" href="{{ routes.collections_url }}/products">Continue shopping</a></p>
+        </div>
+      </div>
+    {%- endform -%}
+  {%- else -%}
+    <div class="ps-empty"><p>Your cart is empty.</p><a class="btn p" href="{{ routes.collections_url }}/products">Shop products</a></div>
+  {%- endif -%}
+</div>
+{% schema %}{"name":"Cart","settings":[]}{% endschema %}

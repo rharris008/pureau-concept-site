@@ -1,0 +1,12 @@
+{%- comment -%} Accepts: form, address, key {%- endcomment -%}
+<label for="a-first-{{ key }}">First name</label><input type="text" id="a-first-{{ key }}" name="address[first_name]" value="{{ form.first_name }}" autocomplete="given-name">
+<label for="a-last-{{ key }}">Last name</label><input type="text" id="a-last-{{ key }}" name="address[last_name]" value="{{ form.last_name }}" autocomplete="family-name">
+<label for="a-company-{{ key }}">Company</label><input type="text" id="a-company-{{ key }}" name="address[company]" value="{{ form.company }}" autocomplete="organization">
+<label for="a-addr1-{{ key }}">Address</label><input type="text" id="a-addr1-{{ key }}" name="address[address1]" value="{{ form.address1 }}" autocomplete="address-line1">
+<label for="a-addr2-{{ key }}">Apartment, suite, etc.</label><input type="text" id="a-addr2-{{ key }}" name="address[address2]" value="{{ form.address2 }}" autocomplete="address-line2">
+<label for="a-city-{{ key }}">Suburb</label><input type="text" id="a-city-{{ key }}" name="address[city]" value="{{ form.city }}" autocomplete="address-level2">
+<label for="a-country-{{ key }}">Country</label><select id="a-country-{{ key }}" name="address[country]" data-default="{{ form.country }}">{{ all_country_option_tags }}</select>
+<label for="a-province-{{ key }}">State</label><input type="text" id="a-province-{{ key }}" name="address[province]" value="{{ form.province }}" autocomplete="address-level1">
+<label for="a-zip-{{ key }}">Postcode</label><input type="text" id="a-zip-{{ key }}" name="address[zip]" value="{{ form.zip }}" autocomplete="postal-code">
+<label for="a-phone-{{ key }}">Phone</label><input type="tel" id="a-phone-{{ key }}" name="address[phone]" value="{{ form.phone }}" autocomplete="tel">
+<label style="display:flex;gap:8px;align-items:center;font-weight:400">{{ form.set_as_default_checkbox }} Set as default address</label>

@@ -1,0 +1,7 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a> / <a href="{{ blog.url }}">{{ blog.title | escape }}</a></div><h1>{{ article.title | escape }}</h1><div class="ps-crumb">{{ article.published_at | date: '%-d %B %Y' }}</div></div></div>
+<div class="ps ps-narrow">
+  {%- if article.image -%}<p>{{ article.image | image_url: width: 1200 | image_tag: alt: article.title, style: 'width:100%;height:auto;border-radius:14px' }}</p>{%- endif -%}
+  <div class="rte">{{ article.content }}</div>
+  <p style="margin-top:30px"><a class="lnk" href="{{ blog.url }}">&larr; Back to {{ blog.title | escape }}</a></p>
+</div>
+{% schema %}{"name":"Article","settings":[]}{% endschema %}

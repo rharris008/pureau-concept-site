@@ -1,0 +1,28 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Log in</h1></div></div>
+<div class="ps ps-narrow">
+  <div id="recover" style="display:none">
+    {%- form 'recover_customer_password', class: 'ps-form' -%}
+      {%- if form.posted_successfully? -%}<div class="ps-ok">We've emailed you a link to reset your password.</div>{%- endif -%}
+      {%- if form.errors -%}<div class="ps-err">{{ form.errors | default_errors }}</div>{%- endif -%}
+      <h3>Reset your password</h3>
+      <label for="r-email">Email</label><input type="email" id="r-email" name="email" autocomplete="email" required>
+      <button type="submit" class="btn p">Send reset link</button>
+      <a class="lnk" href="#login" onclick="document.getElementById('recover').style.display='none';document.getElementById('login').style.display='block'">Cancel</a>
+    {%- endform -%}
+  </div>
+  <div id="login">
+    {%- form 'customer_login', class: 'ps-form' -%}
+      {%- if form.errors -%}<div class="ps-err">{{ form.errors | default_errors }}</div>{%- endif -%}
+      <label for="l-email">Email</label><input type="email" id="l-email" name="customer[email]" autocomplete="email" required>
+      <label for="l-pass">Password</label><input type="password" id="l-pass" name="customer[password]" autocomplete="current-password" required>
+      <button type="submit" class="btn p">Log in</button>
+      <a class="lnk" href="#recover" onclick="document.getElementById('login').style.display='none';document.getElementById('recover').style.display='block'">Forgot your password?</a>
+      <a class="lnk" href="{{ routes.account_register_url }}">Create an account</a>
+    {%- endform -%}
+  </div>
+  {%- if shop.checkout.guest_login -%}
+    {%- form 'guest_login', class: 'ps-form', style: 'margin-top:30px' -%}<button type="submit" class="btn s">Continue as guest</button>{%- endform -%}
+  {%- endif -%}
+</div>
+<script>if(location.hash==='#recover'){document.getElementById('login').style.display='none';document.getElementById('recover').style.display='block';}</script>
+{% schema %}{"name":"Customer login","settings":[]}{% endschema %}

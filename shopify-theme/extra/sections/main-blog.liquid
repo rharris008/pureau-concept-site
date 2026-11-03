@@ -1,0 +1,16 @@
+<div class="ps-head"><div class="ps"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>{{ blog.title | escape }}</h1></div></div>
+<div class="ps">
+  {%- paginate blog.articles by 12 -%}
+    <div class="ps-grid">
+      {%- for article in blog.articles -%}
+        <a class="ps-card" href="{{ article.url }}">
+          {%- if article.image -%}<div class="ph">{{ article.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: article.title, style: 'object-fit:cover;padding:0' }}</div>{%- endif -%}
+          <div class="bd"><span class="ps-crumb">{{ article.published_at | date: '%-d %B %Y' }}</span><h3>{{ article.title | escape }}</h3><p style="font-size:14px">{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</p><span class="ps-more">Read more &rarr;</span></div>
+        </a>
+      {%- else -%}<p class="ps-empty">No posts yet.</p>
+      {%- endfor -%}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+{% schema %}{"name":"Blog","settings":[]}{% endschema %}

@@ -1,0 +1,11 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Activate your account</h1></div></div>
+<div class="ps ps-narrow">
+  {%- form 'activate_customer_password', class: 'ps-form' -%}
+    {%- if form.errors -%}<div class="ps-err">{{ form.errors | default_errors }}</div>{%- endif -%}
+    <label for="ac-pass">Password</label><input type="password" id="ac-pass" name="customer[password]" autocomplete="new-password">
+    <label for="ac-pass2">Confirm password</label><input type="password" id="ac-pass2" name="customer[password_confirmation]" autocomplete="new-password">
+    <button type="submit" class="btn p">Activate account</button>
+    <button type="submit" name="decline" class="btn s" style="background:none">Decline invitation</button>
+  {%- endform -%}
+</div>
+{% schema %}{"name":"Activate account","settings":[]}{% endschema %}

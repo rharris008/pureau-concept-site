@@ -1,0 +1,18 @@
+<div class="ps-head"><div class="ps"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Shop Pureau</h1></div></div>
+<div class="ps">
+  {%- paginate collections by 24 -%}
+  <div class="ps-grid">
+    {%- for collection in collections -%}
+      <a class="ps-card" href="{{ collection.url }}">
+        <div class="ph">
+          {%- assign img = collection.featured_image | default: collection.products.first.featured_image -%}
+          {%- if img -%}{{ img | image_url: width: 600 | image_tag: loading: 'lazy', alt: collection.title }}{%- endif -%}
+        </div>
+        <div class="bd"><h3>{{ collection.title | escape }}</h3><span class="ps-more">{{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }} &rarr;</span></div>
+      </a>
+    {%- endfor -%}
+  </div>
+  {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+{% schema %}{"name":"Collections list","settings":[]}{% endschema %}

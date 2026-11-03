@@ -1,0 +1,33 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Addresses</h1></div></div>
+<div class="ps">
+  <p><a class="lnk" href="{{ routes.account_url }}">&larr; Back to my account</a></p>
+  <div class="ps-acct">
+    <div>
+      {%- paginate customer.addresses by 10 -%}
+        {%- for address in customer.addresses -%}
+          <div class="ps-box" style="margin-bottom:16px">
+            {%- if address == customer.default_address -%}<span class="ps-tag">Default</span>{%- endif -%}
+            <p style="margin-top:8px">{{ address | format_address }}</p>
+            <details><summary class="lnk" style="cursor:pointer;color:var(--blue)">Edit</summary>
+              {%- form 'customer_address', address, class: 'ps-form', style: 'margin-top:14px' -%}
+                {% render 'address-fields', form: form, address: address, key: address.id %}
+                <button type="submit" class="btn p">Save address</button>
+              {%- endform -%}
+            </details>
+            <form method="post" action="{{ address.url }}" style="margin-top:10px"><input type="hidden" name="_method" value="delete"><button type="submit" class="lnk" style="background:none;border:none;padding:0;color:var(--muted);cursor:pointer;font:inherit;font-size:13px" onclick="return confirm('Delete this address?')">Delete</button></form>
+          </div>
+        {%- else -%}<p>No saved addresses yet.</p>
+        {%- endfor -%}
+        {% render 'pagination', paginate: paginate %}
+      {%- endpaginate -%}
+    </div>
+    <div class="ps-box">
+      <h3>Add a new address</h3>
+      {%- form 'customer_address', customer.new_address, class: 'ps-form' -%}
+        {% render 'address-fields', form: form, address: customer.new_address, key: 'new' %}
+        <button type="submit" class="btn p">Add address</button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+{% schema %}{"name":"Customer addresses","settings":[]}{% endschema %}

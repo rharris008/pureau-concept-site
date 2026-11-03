@@ -1,0 +1,81 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign featured = current_variant.featured_media | default: product.featured_media
+-%}
+<div class="ps">
+  <div class="ps-crumb" style="margin-bottom:22px"><a href="{{ routes.root_url }}">Home</a> / <a href="{% if collection %}{{ collection.url }}{% else %}{{ routes.collections_url }}/products{% endif %}">{% if collection %}{{ collection.title | escape }}{% else %}Shop{% endif %}</a> / {{ product.title | escape }}</div>
+  <div class="pp" id="pp-{{ section.id }}">
+    <div class="pp-gallery">
+      <div class="pp-main">
+        {%- if featured -%}
+          {{ featured.preview_image | image_url: width: 1200 | image_tag: id: 'pp-main-img', alt: featured.alt | default: product.title, sizes: '(max-width: 860px) 100vw, 55vw', widths: '400, 600, 800, 1000, 1200', loading: 'eager' }}
+        {%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="pp-thumbs">
+          {%- for media in product.media -%}
+            <button type="button" class="{% if media.id == featured.id %}on{% endif %}" data-media-id="{{ media.id }}" data-src="{{ media.preview_image | image_url: width: 1200 }}" aria-label="Show image {{ forloop.index }}">
+              {{ media.preview_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: media.alt | default: product.title }}
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="pp-info">
+      {%- if product.vendor != blank -%}<div class="eyebrow">{{ product.vendor | escape }}</div>{%- endif -%}
+      <h1>{{ product.title | escape }}</h1>
+      <div class="ps-price" id="pp-price">{{ current_variant.price | money }}{% if current_variant.compare_at_price > current_variant.price %}<s>{{ current_variant.compare_at_price | money }}</s>{% endif %}</div>
+      <div class="pp-tax">Prices in AUD, GST included. Shipping calculated at checkout.</div>
+      {%- form 'product', product, id: 'pp-form', class: 'pp-form' -%}
+        <input type="hidden" name="id" id="pp-variant" value="{{ current_variant.id }}">
+        {%- unless product.has_only_default_variant -%}
+          <div class="pp-field">
+            <label for="pp-variant-select">{{ product.options | join: ' / ' }}</label>
+            <select id="pp-variant-select">
+              {%- for variant in product.variants -%}
+                <option value="{{ variant.id }}"{% if variant.id == current_variant.id %} selected{% endif %}{% unless variant.available %} disabled{% endunless %}>{{ variant.title | escape }}{% unless variant.available %} (sold out){% endunless %}</option>
+              {%- endfor -%}
+            </select>
+          </div>
+        {%- endunless -%}
+        <div class="pp-field">
+          <label for="pp-qty">Quantity</label>
+          <div class="pp-qty">
+            <button type="button" data-step="-1" aria-label="Decrease quantity">&minus;</button>
+            <input type="number" id="pp-qty" name="quantity" value="1" min="1">
+            <button type="button" data-step="1" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        <div class="pp-buy">
+          <button type="submit" name="add" id="pp-add" class="btn p full"{% unless current_variant.available %} disabled{% endunless %}>{% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}</button>
+          {{ form | payment_button }}
+        </div>
+      {%- endform -%}
+      {%- if product.description != blank -%}<div class="pp-desc rte">{{ product.description }}</div>{%- endif -%}
+      <div class="pp-trust"><span>Australian owned</span><span>Made at Erskine Park, NSW</span><span>Secure checkout</span></div>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="pp-json">{{ product | json }}</script>
+<script>
+(function(){
+  var p=JSON.parse(document.getElementById('pp-json').textContent);
+  var main=document.getElementById('pp-main-img');
+  var thumbs=document.querySelectorAll('.pp-thumbs button');
+  function show(src,id){ if(main&&src){main.removeAttribute('srcset');main.src=src;} thumbs.forEach(function(b){b.classList.toggle('on',String(b.dataset.mediaId)===String(id));}); }
+  thumbs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.src,b.dataset.mediaId);});});
+  var q=document.getElementById('pp-qty');
+  document.querySelectorAll('.pp-qty button').forEach(function(b){b.addEventListener('click',function(){q.value=Math.max(1,(parseInt(q.value,10)||1)+parseInt(b.dataset.step,10));});});
+  var sel=document.getElementById('pp-variant-select');
+  if(sel){sel.addEventListener('change',function(){
+    var v=p.variants.find(function(x){return String(x.id)===sel.value;}); if(!v) return;
+    document.getElementById('pp-variant').value=v.id;
+    var fmt=function(c){return '$'+(c/100).toFixed(2);};
+    document.getElementById('pp-price').innerHTML=fmt(v.price)+(v.compare_at_price>v.price?'<s>'+fmt(v.compare_at_price)+'</s>':'');
+    var add=document.getElementById('pp-add'); add.disabled=!v.available; add.textContent=v.available?'Add to cart':'Sold out';
+    if(v.featured_media){var t=document.querySelector('.pp-thumbs button[data-media-id="'+v.featured_media.id+'"]'); if(t) show(t.dataset.src,v.featured_media.id);}
+    var u=new URL(location.href); u.searchParams.set('variant',v.id); history.replaceState(null,'',u.toString());
+  });}
+})();
+</script>
+{% schema %}{"name":"Product","settings":[]}{% endschema %}

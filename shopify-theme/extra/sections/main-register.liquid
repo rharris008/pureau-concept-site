@@ -1,0 +1,13 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Create an account</h1></div></div>
+<div class="ps ps-narrow">
+  {%- form 'create_customer', class: 'ps-form' -%}
+    {%- if form.errors -%}<div class="ps-err">{{ form.errors | default_errors }}</div>{%- endif -%}
+    <label for="g-first">First name</label><input type="text" id="g-first" name="customer[first_name]" autocomplete="given-name">
+    <label for="g-last">Last name</label><input type="text" id="g-last" name="customer[last_name]" autocomplete="family-name">
+    <label for="g-email">Email</label><input type="email" id="g-email" name="customer[email]" autocomplete="email" required>
+    <label for="g-pass">Password</label><input type="password" id="g-pass" name="customer[password]" autocomplete="new-password" required>
+    <button type="submit" class="btn p">Create account</button>
+    <a class="lnk" href="{{ routes.account_login_url }}">Already have an account? Log in</a>
+  {%- endform -%}
+</div>
+{% schema %}{"name":"Customer register","settings":[]}{% endschema %}

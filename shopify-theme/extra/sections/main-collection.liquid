@@ -1,0 +1,58 @@
+{%- liquid
+  assign per_page = section.settings.per_page
+  assign current_sort = collection.sort_by
+  if current_sort == blank
+    assign current_sort = section.settings.default_sort
+    if current_sort == 'manual'
+      assign current_sort = collection.default_sort_by
+    endif
+  endif
+-%}
+<div class="ps-head">
+  <div class="ps">
+    <div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a> / <a href="{{ routes.collections_url }}">Shop</a></div>
+    <h1>{{ collection.title | escape }}</h1>
+    {%- if collection.description != blank -%}<div class="ps-desc rte">{{ collection.description }}</div>{%- endif -%}
+  </div>
+</div>
+<div class="ps">
+  {%- paginate collection.products by per_page -%}
+    <div class="ps-toolbar">
+      <span>{{ collection.products_count }} {{ collection.products_count | pluralize: 'product', 'products' }}</span>
+      <label for="SortBy">Sort by
+        <select id="SortBy" onchange="var u=new URL(location.href);u.searchParams.set('sort_by',this.value);u.searchParams.delete('page');location.href=u.toString();">
+          {%- for option in collection.sort_options -%}
+            <option value="{{ option.value | escape }}"{% if option.value == current_sort %} selected{% endif %}>{{ option.name | escape }}</option>
+          {%- endfor -%}
+        </select>
+      </label>
+    </div>
+    {%- liquid
+      assign products = collection.products
+      if collection.sort_by == blank and section.settings.default_sort == 'price-descending'
+        assign products = collection.products | sort: 'price' | reverse
+      elsif collection.sort_by == blank and section.settings.default_sort == 'price-ascending'
+        assign products = collection.products | sort: 'price'
+      endif
+    -%}
+    {%- if products.size > 0 -%}
+      <div class="ps-grid">
+        {%- for product in products -%}{% render 'product-card', product: product %}{%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="ps-empty"><p>No products here yet.</p><a class="btn p" href="{{ routes.all_products_collection_url }}">See all products</a></div>
+    {%- endif -%}
+    {% render 'pagination', paginate: paginate %}
+  {%- endpaginate -%}
+</div>
+{% schema %}
+{
+  "name": "Collection grid",
+  
+  "settings": [
+    {"type": "range", "id": "per_page", "label": "Products per page", "min": 4, "max": 48, "step": 4, "default": 24},
+    {"type": "select", "id": "default_sort", "label": "Default sort", "default": "price-descending",
+     "options": [{"value": "price-descending", "label": "Price, high to low"}, {"value": "price-ascending", "label": "Price, low to high"}, {"value": "manual", "label": "Collection default"}]}
+  ]
+}
+{% endschema %}

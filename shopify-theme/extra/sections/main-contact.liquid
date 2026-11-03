@@ -1,0 +1,14 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>{{ page.title | escape }}</h1></div></div>
+<div class="ps ps-narrow">
+  {%- if page.content != blank -%}<div class="rte" style="margin-bottom:30px">{{ page.content }}</div>{%- endif -%}
+  {%- form 'contact', class: 'ps-form' -%}
+    {%- if form.posted_successfully? -%}<div class="ps-ok">Thanks for getting in touch. We'll be back to you soon.</div>{%- endif -%}
+    {%- if form.errors -%}<div class="ps-err">{{ form.errors | default_errors }}</div>{%- endif -%}
+    <label for="c-name">Name</label><input type="text" id="c-name" name="contact[name]" autocomplete="name" value="{{ form.name }}">
+    <label for="c-email">Email</label><input type="email" id="c-email" name="contact[email]" autocomplete="email" required value="{{ form.email }}">
+    <label for="c-phone">Phone</label><input type="tel" id="c-phone" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}">
+    <label for="c-body">Message</label><textarea id="c-body" name="contact[body]" rows="6">{{ form.body }}</textarea>
+    <button type="submit" class="btn p">Send message</button>
+  {%- endform -%}
+</div>
+{% schema %}{"name":"Contact form","settings":[]}{% endschema %}

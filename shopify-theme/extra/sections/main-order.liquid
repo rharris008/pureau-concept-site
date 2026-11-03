@@ -1,0 +1,23 @@
+<div class="ps-head"><div class="ps ps-narrow"><div class="ps-crumb"><a href="{{ routes.root_url }}">Home</a></div><h1>Order {{ order.name }}</h1></div></div>
+<div class="ps">
+  <p><a class="lnk" href="{{ routes.account_url }}">&larr; Back to my account</a></p>
+  <p>Placed {{ order.created_at | date: '%-d %B %Y' }}{% if order.cancelled %} &middot; Cancelled {{ order.cancelled_at | date: '%-d %B %Y' }}{% endif %}</p>
+  <table class="ct">
+    <thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th style="text-align:right">Total</th></tr></thead>
+    <tbody>
+      {%- for item in order.line_items -%}
+        <tr><td class="nm">{{ item.title | escape }}{% if item.fulfillment %}<small>Fulfilled {{ item.fulfillment.created_at | date: '%-d %b %Y' }}{% if item.fulfillment.tracking_url %} &middot; <a href="{{ item.fulfillment.tracking_url }}">Track</a>{% endif %}</small>{% endif %}</td><td>{{ item.final_price | money }}</td><td>{{ item.quantity }}</td><td class="tot">{{ item.final_line_price | money }}</td></tr>
+      {%- endfor -%}
+    </tbody>
+  </table>
+  <div class="ct-foot">
+    <div class="ps-box"><h3>Shipping address</h3>{% if order.shipping_address %}<p>{{ order.shipping_address | format_address }}</p>{% endif %}<p>{{ order.fulfillment_status_label }}</p></div>
+    <div class="ct-sum">
+      <p>Subtotal {{ order.line_items_subtotal_price | money }}</p>
+      {%- for s in order.shipping_methods -%}<p>Shipping ({{ s.title | escape }}) {{ s.price | money }}</p>{%- endfor -%}
+      {%- for t in order.tax_lines -%}<p>{{ t.title | escape }} {{ t.price | money }}</p>{%- endfor -%}
+      <div class="row"><span>Total</span><span>{{ order.total_price | money }}</span></div>
+    </div>
+  </div>
+</div>
+{% schema %}{"name":"Customer order","settings":[]}{% endschema %}

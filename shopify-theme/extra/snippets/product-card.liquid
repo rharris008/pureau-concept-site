@@ -1,0 +1,18 @@
+{%- comment -%} Renders a product card. Accepts: product {%- endcomment -%}
+<a class="ps-card" href="{{ product.url }}">
+  <div class="ph">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.featured_image.alt | default: product.title, sizes: '(max-width: 600px) 50vw, 300px', widths: '300, 450, 600' }}
+    {%- endif -%}
+  </div>
+  <div class="bd">
+    {%- unless product.available -%}<span class="ps-tag">Sold out</span>{%- endunless -%}
+    <h3>{{ product.title }}</h3>
+    <div class="ps-price">
+      {%- if product.price_varies -%}From {% endif -%}
+      {{ product.price | money }}
+      {%- if product.compare_at_price > product.price -%}<s>{{ product.compare_at_price | money }}</s>{%- endif -%}
+    </div>
+    <span class="ps-more">View product &rarr;</span>
+  </div>
+</a>
