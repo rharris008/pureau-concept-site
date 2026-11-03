@@ -209,6 +209,8 @@ header.nav .inner{justify-content:flex-start!important}
 .btn.p:hover{background:var(--blue-d)}
 .btn.s{border:1.5px solid var(--blue); color:var(--blue)}
 .btn.s:hover{background:var(--tint-2)}
+.hero .hand{position:absolute; left:-2vw; top:50%; transform:translateY(-50%); z-index:1; height:min(72%,600px); width:auto; max-width:44vw; object-fit:contain; object-position:left center; opacity:.6; pointer-events:none; user-select:none; -webkit-mask-image:linear-gradient(90deg,#000 55%,rgba(0,0,0,.6) 100%); mask-image:linear-gradient(90deg,#000 55%,rgba(0,0,0,.6) 100%)}
+@media(max-width:760px){.hero .hand{display:none}}
 @media(max-width:760px){.hero .veil{background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.92) 60%, rgba(255,255,255,.7) 100%)}}
 
 /* ---------- Sections ---------- */
@@ -580,6 +582,7 @@ body.review [data-red]::after{content:attr(data-red); position:absolute; left:0;
   <img class="bg" id="heroImg" src="web/hero/burragorang.webp" alt="Lake Burragorang, NSW — where Pureau's water begins" style="object-position:70% 50%">
   <script>(function(){var H=[["jimjim","Jim Jim Falls, Kakadu NT","72% 50%","Photo: Reesa sc, CC BY-SA 4.0"],["mitchell","Mitchell Falls, Kimberley WA","62% 50%"],["kimberley","The Kimberley, WA","55% 50%"],["millaa-millaa","Millaa Millaa Falls, QLD","55% 50%","Photo: Lenny K Photography, CC BY 2.0"],["wallaman","Wallaman Falls, QLD","55% 50%","Photo: Korkut Tas, CC BY-SA 3.0"],["elabana","Elabana Falls, Lamington QLD","65% 50%","Photo: Alandean88, CC BY-SA 4.0"],["ebor","Ebor Falls, NSW","70% 50%",""],["wollomombi","Wollomombi Falls, NSW","68% 50%","Photo: Yuanchen Chen, CC BY-SA 4.0"],["burragorang","Lake Burragorang, NSW — where Pureau's water begins","70% 50%","Photo: Goran Has, CC BY 2.0"],["kedumba","Kedumba River, NSW — where Pureau's water begins","60% 50%","Photo: Vrweare, CC BY-SA 4.0"]];var q=/[?&]hero=(\d+)/.exec(location.search),i=q?(+q[1]-1)%H.length:(function(){var L=H.findIndex(function(x){return x[0]=="burragorang"});if(Math.random()<0.5)return L;var j=Math.floor(Math.random()*(H.length-1));return j>=L?j+1:j;})();if(i<0)i=0;var h=H[i],im=document.getElementById("heroImg");im.src="web/hero/"+h[0]+".webp";im.alt=h[1];im.style.objectPosition=h[2];window.__heroCap=h[1];window.__heroCred=h[3]||"";})();</script>
   <div class="veil"></div>
+  <img class="hand" src="web/hero/hand-bottle.webp" alt="" aria-hidden="true" width="674" height="682" decoding="async">
   <p class="hero-cap" id="heroCap">Lake Burragorang, NSW — where Pureau's water begins<span class="hero-cred">Photo: Goran Has, CC BY 2.0</span></p>
   <script>if(window.__heroCap){var c=document.getElementById("heroCap");c.textContent=window.__heroCap;if(window.__heroCred){var s=document.createElement("span");s.className="hero-cred";s.textContent=window.__heroCred;c.appendChild(s);}}</script>
   <div class="wrap">
